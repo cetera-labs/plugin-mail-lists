@@ -11,7 +11,6 @@
  **/
   
 include_once('common_bo.php');
-include('common_ml.php');
 
 $res = array(
     'success' => false,

@@ -6,7 +6,6 @@
 *************************************************************************************************/
 
 include_once('common_bo.php');
-include('common_ml.php');
 
 $data = array(
     array('id' => FILTER_ALL_USERS, 'name' => $translator->_('Все пользователи')),

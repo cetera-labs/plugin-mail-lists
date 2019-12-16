@@ -25,7 +25,7 @@ if ( $this->getBo() && $this->getUser() && $this->getUser()->hasRight(GROUP_MAIL
   	    'position' => MENU_SITE,
         'name' 	   => 'Рассылки',
         'icon'     => 'icon_send.gif',
-        'class'    => 'Plugin.mail_lists.Panel'
+        'class'    => 'Plugin.mail-lists.Panel'
     ));
   
 }

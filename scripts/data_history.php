@@ -6,7 +6,6 @@
 *************************************************************************************************/
 
 include_once('common_bo.php');
-include('common_ml.php');
 
 $mail_state = array(
 	MAIL_LIST_FORMED => $translator->_('Рассылка сформирована (отложена)'),

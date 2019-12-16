@@ -1,6 +1,4 @@
 <?php
-include_once('common_ml.php');
-
 $application->connectDb();
 
 print "Mail lists\n";

@@ -1,4 +1,4 @@
-Ext.define('Plugin.mail_lists.Panel', {
+Ext.define('Plugin.mail-lists.Panel', {
 
     extend:'Ext.grid.GridPanel',
     
@@ -34,7 +34,7 @@ Ext.define('Plugin.mail_lists.Panel', {
             totalProperty: 'total',
             proxy: {
                 type: 'ajax',
-                url: '/plugins/mail_lists/data_mail_lists.php',
+                url: '/plugins/mail-lists/scripts/data_mail_lists.php',
                 simpleSortMode: true,
                 reader: {
                     root: 'rows',
@@ -89,7 +89,7 @@ Ext.define('Plugin.mail_lists.Panel', {
                         {
                             id: 'tb_mail_send',
                             disabled: true,
-                            icon: '/plugins/mail_lists/icon_send.gif',
+                            icon: '/plugins/mail-lists/images/icon_send.gif',
                             tooltip: _('Разослать'),
                             handler: function() { this.send(); },
                             scope: this
@@ -120,7 +120,7 @@ Ext.define('Plugin.mail_lists.Panel', {
     stripeRows: true,
     
     createMail: function() {
-          var sendWin = Ext.create('Plugin.mail_lists.MailListSendWindow', {
+          var sendWin = Ext.create('Plugin.mail-lists.MailListSendWindow', {
 			  listId: 0,
 			  historyId: 0,
 			  materials: null
@@ -130,7 +130,7 @@ Ext.define('Plugin.mail_lists.Panel', {
        
     edit: function(id) {
         if (!this.propertiesWin) {
-            this.propertiesWin = Ext.create('Plugin.mail_lists.Properties');
+            this.propertiesWin = Ext.create('Plugin.mail-lists.Properties');
             this.propertiesWin.on('listChanged', function(id, name) {
                 if (id)
                     this.store.getById(id).set('name', name);
@@ -142,9 +142,9 @@ Ext.define('Plugin.mail_lists.Panel', {
     
     send: function() {
         if (!this.chooseWin) {
-            this.chooseWin = Ext.create('Plugin.mail_lists.Choose');
+            this.chooseWin = Ext.create('Plugin.mail-lists.Choose');
             this.chooseWin.on('select', function() {
-                var sendWin = Ext.create('Plugin.mail_lists.MailListSendWindow', {
+                var sendWin = Ext.create('Plugin.mail-lists.MailListSendWindow', {
 				  listId: this.getSelectionModel().getSelection()[0].getId(),
 				  historyId: 0,
 				  materials: this.chooseWin.store
@@ -163,7 +163,7 @@ Ext.define('Plugin.mail_lists.Panel', {
       
     call: function(action) {
         Ext.Ajax.request({
-            url: '/plugins/mail_lists/action_mail_lists.php',
+            url: '/plugins/mail-lists/scripts/action_mail_lists.php',
             params: { 
                 action: action, 
                 id: this.getSelectionModel().getSelection()[0].getId()

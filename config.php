@@ -24,12 +24,12 @@ if ( $this->getBo() && $this->getUser() && $this->getUser()->hasRight(GROUP_MAIL
   	    'id'	   => 'mail_lists',
   	    'position' => MENU_SITE,
         'name' 	   => 'Рассылки',
-        'icon'     => 'icon_send.gif',
+        'icon'     => '/plugins/mail-lists/images/icon_send.gif',
         'class'    => 'Plugin.mail-lists.Panel'
     ));
   
 }
-$this->registerCronJob( __DIR__.'/scheduler.php' );
+$this->registerCronJob( __DIR__.'/scripts/scheduler.php' );
 
 function _($text) {
 	return \Cetera\Application::getInstance()->getTranslator()->_($text);

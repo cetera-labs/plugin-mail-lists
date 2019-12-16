@@ -1,4 +1,4 @@
-Ext.define('Plugin.mail_lists.Choose', {
+Ext.define('Plugin.mail-lists.Choose', {
 
     extend:'Ext.Window',
     
@@ -23,7 +23,7 @@ Ext.define('Plugin.mail_lists.Choose', {
             proxy: {
                 type: 'ajax',
                 extraParams: {id: 0},
-                url: '/plugins/mail_lists/data_materials.php',
+                url: '/plugins/mail-lists/scripts/data_materials.php',
                 simpleSortMode: true,
                 reader: {
                     root: 'rows',

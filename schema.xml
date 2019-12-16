@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<schema>
+
+<table name="mail_lists">
+    <field name="id" type="int(11)" null="0" auto_increment="1" />
+    <field name="name" type="varchar(64)" null="1" />
+    <field name="describ" type="varchar(128)" null="1" />
+    <field name="subject" type="varchar(255)" null="1" />
+    <field name="body" type="text" null="1" />
+    <field name="sender" type="varchar(128)" null="0" default="Nobody name@domain" />
+    <field name="contenttype" type="varchar(64)" null="1" default="text/plain" />
+    <field name="material_where" type="varchar(255)" null="1" />
+    <field name="schedule" type="tinyint(3) unsigned" null="0" />
+    <field name="schedule_period" type="int(11)" null="0" />
+    <field name="schedule_lastrun" type="datetime" null="0" default="2000-01-01 00:00:00" />
+    <key name="PRIMARY" unique="1">
+        <column name="id" />
+    </key>
+</table>
+
+<table name="mail_lists_history">
+    <field name="id" type="int(3) unsigned" null="0" auto_increment="1" />
+    <field name="list_id" type="int(3) unsigned" null="0" />
+    <field name="form_date" type="datetime" null="1" />
+    <field name="sched_date" type="datetime" null="1" />
+    <field name="send_date" type="datetime" null="1" />
+    <field name="subject" type="varchar(255)" null="1" />
+    <field name="sender" type="varchar(128)" null="0" default="Nobody name@domain" />
+    <field name="contenttype" type="varchar(64)" null="0" default="text/plain" />
+    <field name="body" type="text" null="1" />
+    <field name="state" type="tinyint(3) unsigned" null="0" />
+    <field name="counter" type="int(3) unsigned" null="0" />
+    <field name="percent" type="tinyint(3) unsigned" null="0" />
+    <field name="filter" type="tinyint(3)" null="0" />
+    <key name="PRIMARY" unique="1">
+        <column name="id" />
+    </key>
+    <key name="list_id" unique="0">
+        <column name="list_id" />
+    </key>
+</table>
+
+<table name="mail_lists_users">
+    <field name="iduser" type="int(11)" null="0" />
+    <field name="idlist" type="int(11)" null="0" />
+    <key name="PRIMARY" unique="1">
+        <column name="idlist" />
+        <column name="iduser" />
+    </key>
+</table>
+
+<table name="mail_lists_dirs">
+    <field name="idcat" type="int(11)" null="0" default="1" />
+    <field name="idlist" type="int(11)" null="0" default="1" />
+    <key name="idcat" unique="0">
+        <column name="idcat" />
+        <column name="idlist" />
+    </key>
+</table>
+
+<table name="mail_lists_user_filters">
+    <field name="id" type="int(3) unsigned" null="0" auto_increment="1" />
+    <field name="name" type="varchar(100)" null="1" />
+    <field name="sql" type="text" null="1" />
+    <key name="PRIMARY" unique="1">
+        <column name="id" />
+    </key>
+</table>
+
+
+</schema>

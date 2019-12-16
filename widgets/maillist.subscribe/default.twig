@@ -1,0 +1,73 @@
+{% if not widget.getParam('ajaxCall') %}
+{{ widget.widgetTitle|raw }}
+<div id="{{ widget.getUniqueId() }}-wrapper">
+{% endif %}	
+
+<form novalidate="novalidate" data-abide="9xbxrb-abide" method="post" class="x-form">
+
+	{{ widget.message|raw }}
+
+	{% if widget.getParam('newsletters_select') %}
+	<ul class="menu vertical">
+		{% for n in widget.getNewsletters() %}
+		<li>
+			<p><input type="checkbox" checked name="newsletter[{{ n.id }}]" value="{{ n.id }}"> {{ n.name }}</p>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+
+    <input type="email" required="" name="email" placeholder="Email">
+    <button class="button expanded x-submit" type="submit">{{ widget.getParam('subscribe_text')|raw }}</button>
+	{{ widget.hiddenFields|raw }}
+</form> 
+
+{% if not widget.getParam('ajaxCall') %}
+</div>
+{% endif %}
+
+{% set script %}
+    {% if widget.getParam('ajax') and not widget.getParam('ajaxCall') %}
+	<script>	
+		document.addEventListener('DOMContentLoaded', function () {
+			{{ widget.uniqueId|replace({'-':'_'}) }}_hook();
+		});
+		function {{ widget.uniqueId|replace({'-':'_'}) }}_hook(){
+		    var form = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-form");				
+			form.addEventListener("submit", function(e){
+				e.preventDefault();
+				var request = new XMLHttpRequest();
+				var body = '{% for name,value in widget.params %}params[{{ name }}]={{ value|url_encode }}&{% endfor %}';
+				var form = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-form");
+				for (var i = 0; i < form.elements.length; i++)
+					if (form.elements[i].getAttribute('name'))
+						body += '&'+form.elements[i].getAttribute('name')+'='+form.elements[i].value;
+				request.open('POST', '{{ widget.getAjaxUrl()|raw }}', true);
+				request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+				request.onload = function (e) {
+					if (request.readyState === 4) {
+						if (request.status === 200) {
+							var widget = document.querySelector("#{{ widget.uniqueId }}-wrapper");
+							widget.innerHTML = request.responseText;
+							{{ widget.uniqueId|replace({'-':'_'}) }}_hook();
+						} else {
+							console.error(request.statusText);
+						}
+					}
+				};
+				request.onerror = function (e) {
+					console.error(request.statusText);
+				};
+				var submit = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-submit");
+				if (submit) {
+					submit.innerHTML = '{{ _('Отправка ...') }}';
+					submit.setAttribute('disabled',1);
+				}
+				request.send(body);				
+			});
+		}
+				
+	</script>
+	{% endif %}
+{% endset %}
+{% do widget.application.addHeadString( script ) %}

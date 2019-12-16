@@ -1,0 +1,30 @@
+{
+    "name": "cetera-labs/plugin-mail-lists",
+    "description": "Cetera CMS Mailing Lists Plugin",
+    "type": "cetera-cms-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roman Romanov",
+            "email": "nicodim@mail.ru",
+            "role": "Lead Developer"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "~6.1"
+    },
+    
+    "minimum-stability": "dev",
+    
+    "autoload": {
+        "psr-0": { 
+			"MailLists\\": "classes/"
+		}
+    },
+
+    "extra": {
+        "name": "mail-lists",
+        "title": "E-mail рассылки",
+        "description": ""
+    }
+}

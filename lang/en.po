@@ -1,0 +1,484 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Модуль \"Рассылки\"\n"
+"POT-Creation-Date: 2017-04-28 08:42+0300\n"
+"PO-Revision-Date: 2017-05-08 19:04+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _;translate\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: action_mail_lists.php:87
+msgid "Рассылка не существует"
+msgstr "Newsletter doesn't exist"
+
+#: action_mail_lists.php:92 action_mail_lists.php:131 data_history.php:15
+msgid "Рассылка окончена"
+msgstr "Done"
+
+#: action_mail_lists.php:132
+msgid "Рассылка невозможна. Нет пользователей."
+msgstr "Unable to send. No recipients."
+
+#: action_mail_lists.php:141
+#, php-format
+msgid "Разослано %s писем из %s (%s%%)"
+msgstr "Sent %s out of %s letters (%s%%)"
+
+#: action_mail_lists.php:258
+msgid "Рассылка с таким именем уже существует"
+msgstr "Newsletter with this name already exists"
+
+#: classes/MailLists/Newsletter.php:34
+#, php-format
+msgid "Рассылка ID=%s не найдена"
+msgstr "Newsletter ID=%s is not found"
+
+#: classes/MailLists/WidgetSubscribe.php:14
+msgid "Подписаться"
+msgstr "Subscribe"
+
+#: classes/MailLists/WidgetSubscribe.php:47
+msgid "нет рассылок для подписки"
+msgstr "no newsletters to subscribe"
+
+#: classes/MailLists/WidgetSubscribe.php:67
+msgid "Подписка оформлена"
+msgstr "Subscription set"
+
+#: classes/MailLists/WidgetSubscribe.php:71
+msgid "Не выбрано ни одной рассылки"
+msgstr "No newsletters selected"
+
+#: classes/MailLists/WidgetSubscribe.php:76
+msgid "Неправильный email"
+msgstr "Invalid Email"
+
+#: config.php:10
+msgid "Пользователи почтовых рассылок"
+msgstr "Newsletter users"
+
+#: config.php:11
+msgid "Имеют доступ к управлениями почтовыми рассылками"
+msgstr "Can administrate newsletters"
+
+#: data_history.php:12
+msgid "Рассылка сформирована (отложена)"
+msgstr "Newsletter is ready (suspended)"
+
+#: data_history.php:13
+msgid "Рассылка запланирована"
+msgstr "Newsletter is scheduled"
+
+#: data_history.php:14
+msgid "Идет рассылка"
+msgstr "Newsletter is being sent"
+
+#: data_history.php:16
+msgid "Рассылка приостановлена"
+msgstr "Newsletter is suspended"
+
+#: data_history.php:17
+msgid "Рассылка отменена пользователем"
+msgstr "Newsletter is cancelled by user"
+
+#: data_user_filters.php:12
+msgid "Все пользователи"
+msgstr "All users"
+
+#: data_user_filters.php:13
+msgid "Пользователи Backoffice"
+msgstr "Backoffice users"
+
+#: data_users.php:64
+#, php-format
+msgid "%s отмечено, из них %s имеют Email"
+msgstr "%s selected, %s of them have Email"
+
+#: ui_mail_list_choose.php:16
+msgid "Выбор материалов для рассылки"
+msgstr "Choose materials to send"
+
+#: ui_mail_list_choose.php:57
+msgid "Добавить"
+msgstr "Add"
+
+#: ui_mail_list_choose.php:64 ui_mail_list_properties.php:105
+#: ui_mail_list_properties.php:107 ui_mail_lists.php:80
+msgid "Удалить"
+msgstr "Remove"
+
+#: ui_mail_list_choose.php:72 ui_mail_list_properties.php:350
+msgid "Ok"
+msgstr "Ok"
+
+#: ui_mail_list_choose.php:79 ui_mail_list_properties.php:354
+#: ui_mail_list_send.php:450
+msgid "Отмена"
+msgstr "Cancel"
+
+#: ui_mail_list_choose.php:90
+msgid "Выберете материал"
+msgstr "Select material"
+
+#: ui_mail_list_properties.php:25
+msgid "только подписанные"
+msgstr "only subscribed"
+
+#: ui_mail_list_properties.php:28
+msgid "Подписать всех"
+msgstr "Subscribe all"
+
+#: ui_mail_list_properties.php:35
+msgid "Отписать всех"
+msgstr "Unsubscribe all"
+
+#: ui_mail_list_properties.php:78
+msgid "Дата"
+msgstr "Date"
+
+#: ui_mail_list_properties.php:79
+msgid "Статус"
+msgstr "Status"
+
+#: ui_mail_list_properties.php:87
+msgid "Очистить историю"
+msgstr "Clear history"
+
+#: ui_mail_list_properties.php:89
+msgid "Очистка истории"
+msgstr "Clear history"
+
+#: ui_mail_list_properties.php:89 ui_mail_list_properties.php:107
+#: ui_mail_list_properties.php:363 ui_mail_list_send.php:63
+#: ui_mail_list_send.php:377 ui_mail_lists.php:157
+msgid "Вы уверены"
+msgstr "Are you sure"
+
+#: ui_mail_list_properties.php:98
+msgid "Посмотреть/Разослать"
+msgstr "View/Send"
+
+#: ui_mail_list_properties.php:148
+msgid "Добавить раздел"
+msgstr "Add section"
+
+#: ui_mail_list_properties.php:152
+msgid "Выберете раздел"
+msgstr "Select section"
+
+#: ui_mail_list_properties.php:170
+msgid "Удалить раздел"
+msgstr "Remove section"
+
+#: ui_mail_list_properties.php:186
+msgid "каждый"
+msgstr "every"
+
+#: ui_mail_list_properties.php:193
+msgid "день"
+msgstr "day"
+
+#: ui_mail_list_properties.php:197
+msgid "месяца"
+msgstr "of month"
+
+#: ui_mail_list_properties.php:212
+msgid "Основные"
+msgstr "Main"
+
+#: ui_mail_list_properties.php:218 ui_mail_lists.php:13
+msgid "Имя"
+msgstr "Name"
+
+#: ui_mail_list_properties.php:222 ui_mail_lists.php:14
+msgid "Описание"
+msgstr "Description"
+
+#: ui_mail_list_properties.php:225 ui_mail_list_send.php:290
+msgid "От"
+msgstr "From"
+
+#: ui_mail_list_properties.php:230
+msgid "Content-type"
+msgstr "Content-type"
+
+#: ui_mail_list_properties.php:242
+msgid "Тема письма"
+msgstr "Subject"
+
+#: ui_mail_list_properties.php:245
+msgid "Фильтр материалов"
+msgstr "Filter"
+
+#: ui_mail_list_properties.php:249
+msgid "Расписание"
+msgstr "Schedule"
+
+#: ui_mail_list_properties.php:258
+msgid "Периодичность"
+msgstr "Periodicity"
+
+#: ui_mail_list_properties.php:263
+msgid "нет"
+msgstr "none"
+
+#: ui_mail_list_properties.php:264
+msgid "по дням"
+msgstr "by day"
+
+#: ui_mail_list_properties.php:265
+msgid "по неделям"
+msgstr "by week"
+
+#: ui_mail_list_properties.php:266
+msgid "по месяцам"
+msgstr "by month"
+
+#: ui_mail_list_properties.php:289
+msgid "Пн"
+msgstr "Mn"
+
+#: ui_mail_list_properties.php:290
+msgid "Вт"
+msgstr "Tu"
+
+#: ui_mail_list_properties.php:291
+msgid "Ср"
+msgstr "We"
+
+#: ui_mail_list_properties.php:292
+msgid "Чт"
+msgstr "Th"
+
+#: ui_mail_list_properties.php:293
+msgid "Пт"
+msgstr "Fr"
+
+#: ui_mail_list_properties.php:294
+msgid "Сб"
+msgstr "Sa"
+
+#: ui_mail_list_properties.php:295
+msgid "Вс"
+msgstr "Su"
+
+#: ui_mail_list_properties.php:303
+msgid "Шаблон письма"
+msgstr "Mail template"
+
+#: ui_mail_list_properties.php:310
+msgid "Пользователи"
+msgstr "Users"
+
+#: ui_mail_list_properties.php:314
+msgid "Разделы для рассылки"
+msgstr "Sections"
+
+#: ui_mail_list_properties.php:324
+msgid "История"
+msgstr "History"
+
+#: ui_mail_list_properties.php:363
+msgid "Подписка"
+msgstr "Subscription"
+
+#: ui_mail_list_properties.php:397
+msgid "Свойства"
+msgstr "Properties"
+
+#: ui_mail_list_properties.php:408
+msgid "Новая рассылка"
+msgstr "New newsletter"
+
+#: ui_mail_list_properties.php:453
+msgid "Сохранение..."
+msgstr "Saving..."
+
+#: ui_mail_list_send.php:17
+msgid "Рассылка"
+msgstr "Newsletter"
+
+#: ui_mail_list_send.php:26
+msgid "Тема"
+msgstr "Subject"
+
+#: ui_mail_list_send.php:32 ui_mail_list_send.php:205
+msgid "Тестовая рассылка"
+msgstr "Test newsletter"
+
+#: ui_mail_list_send.php:39
+msgid "Повторить"
+msgstr "Retry"
+
+#: ui_mail_list_send.php:46
+msgid "Приостановить"
+msgstr "Pause"
+
+#: ui_mail_list_send.php:52
+msgid "Отложить рассылку"
+msgstr "Suspend"
+
+#: ui_mail_list_send.php:59 ui_mail_list_send.php:63
+msgid "Отменить рассылку"
+msgstr "Cancel newsletter"
+
+#: ui_mail_list_send.php:74
+msgid "Провести рассылку"
+msgstr "Send"
+
+#: ui_mail_list_send.php:132 ui_mail_list_send.php:142
+msgid "Ошибка"
+msgstr "Error"
+
+#: ui_mail_list_send.php:132
+msgid "Поле \"Тема\" обязательно для заполнения"
+msgstr "\"Subject\" is required"
+
+#: ui_mail_list_send.php:142
+msgid "Выберите получателей"
+msgstr "Select recepients"
+
+#: ui_mail_list_send.php:151
+msgid "Рассылка ..."
+msgstr "Sending ..."
+
+#: ui_mail_list_send.php:205
+msgid "Введите e-mail получателей"
+msgstr "Enter recepients Emails"
+
+#: ui_mail_list_send.php:324
+msgid "Получатели"
+msgstr "Recepients"
+
+#: ui_mail_list_send.php:346
+msgid "Добавить фильтр"
+msgstr "Add filter"
+
+#: ui_mail_list_send.php:351 ui_mail_list_send.php:366
+msgid "Новый фильтр"
+msgstr "New filter"
+
+#: ui_mail_list_send.php:359
+msgid "Изменить фильтр"
+msgstr "Edit filter"
+
+#: ui_mail_list_send.php:374 ui_mail_list_send.php:377
+msgid "Удалить фильтр"
+msgstr "Remove filter"
+
+#: ui_mail_list_send.php:413
+msgid "Имя фильтра"
+msgstr "Filter name"
+
+#: ui_mail_list_send.php:417
+msgid "SQL<br>(без SELECT)"
+msgstr "SQL query<br>(without \"SELECT\" statement)"
+
+#: ui_mail_list_send.php:442
+msgid "Проверить SQL"
+msgstr "Check query"
+
+#: ui_mail_list_send.php:446
+msgid "ОК"
+msgstr "OK"
+
+#: ui_mail_list_send.php:489
+msgid "Подождите ..."
+msgstr "Wait please ..."
+
+#: ui_mail_lists.php:57
+msgid "Разослать письмо пользователям"
+msgstr "Send newsletter"
+
+#: ui_mail_lists.php:64
+msgid "Создать"
+msgstr "Create new"
+
+#: ui_mail_lists.php:72
+msgid "Редактировать"
+msgstr "Edit"
+
+#: ui_mail_lists.php:90
+msgid "Предварительный просмотр"
+msgstr "Preview"
+
+#: ui_mail_lists.php:99
+msgid "Разослать"
+msgstr "Send"
+
+#: ui_mail_lists.php:157
+msgid "Удалить рассылку"
+msgstr "Remove newsletter"
+
+#: unsubscribe.php:8
+msgid "Вы отписаны от рассылки"
+msgstr "You have been unsubscribed"
+
+#~ msgid "Оцените материал"
+#~ msgstr "Rate article"
+
+#~ msgid "Отправить сообщение"
+#~ msgstr "Post message"
+
+#~ msgid "Ваш комментарий принят"
+#~ msgstr "Thanks for comment"
+
+#~ msgid "Проверка не пройдена"
+#~ msgstr "Captcha failed"
+
+#~ msgid "Добавить комментарий"
+#~ msgstr "Add comment"
+
+#~ msgid "Модераторы комментариев"
+#~ msgstr "Comment moderators"
+
+#~ msgid "Комментарии"
+#~ msgstr "Comments"
+
+#~ msgid "Представьтесь"
+#~ msgstr "Your name"
+
+#~ msgid "Текст комментария"
+#~ msgstr "Text"
+
+#~ msgid "Ваше имя для комментария"
+#~ msgstr "Your name"
+
+#~ msgid "Новый способ доставки"
+#~ msgstr "New delivery"
+
+#~ msgid "Акт."
+#~ msgstr "Active"
+
+#~ msgid "Сорт."
+#~ msgstr "Sort"
+
+#~ msgid "Название"
+#~ msgstr "Name"
+
+#~ msgid "Активность"
+#~ msgstr "Active"
+
+#~ msgid "Товары"
+#~ msgstr "Goods"
+
+#~ msgid "Управление магазином"
+#~ msgstr "Sale management"
+
+#~ msgid "Магазин"
+#~ msgstr "Shop"
+
+#~ msgid "Заказы"
+#~ msgstr "Orders"
+
+#~ msgid "Способы доставки"
+#~ msgstr "Delivery methods"

@@ -1,0 +1,424 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Модуль \"Рассылки\"\n"
+"POT-Creation-Date: 2017-04-28 08:42+0300\n"
+"PO-Revision-Date: 2017-05-11 17:04+0300\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _;translate\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Last-Translator: \n"
+"Language: el\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: action_mail_lists.php:87
+msgid "Рассылка не существует"
+msgstr "Ενημερωτικό δελτίο δεν υπάρχει"
+
+#: action_mail_lists.php:92 action_mail_lists.php:131 data_history.php:15
+msgid "Рассылка окончена"
+msgstr "Ενημερωτικό δελτίο τελείωσε"
+
+#: action_mail_lists.php:132
+msgid "Рассылка невозможна. Нет пользователей."
+msgstr "Ενημερωτικό Δελτίο αδύνατη. Δεν υπάρχουν μέλη."
+
+#: action_mail_lists.php:141
+#, php-format
+msgid "Разослано %s писем из %s (%s%%)"
+msgstr "Εστάλη% s% s επιστολών (% s %%)"
+
+#: action_mail_lists.php:258
+msgid "Рассылка с таким именем уже существует"
+msgstr "Ενημερωτικό Δελτίο με υπάρχει ήδη το ίδιο όνομα"
+
+#: classes/MailLists/Newsletter.php:34
+#, php-format
+msgid "Рассылка ID=%s не найдена"
+msgstr "Ενημερωτικό ID=%s δεν βρέθηκε"
+
+#: classes/MailLists/WidgetSubscribe.php:14
+msgid "Подписаться"
+msgstr "Εγγραφή"
+
+#: classes/MailLists/WidgetSubscribe.php:47
+msgid "нет рассылок для подписки"
+msgstr "δεν συνδρομή σε ενημερωτικά δελτία"
+
+#: classes/MailLists/WidgetSubscribe.php:67
+msgid "Подписка оформлена"
+msgstr "Εγγεγραμμένα"
+
+#: classes/MailLists/WidgetSubscribe.php:71
+msgid "Не выбрано ни одной рассылки"
+msgstr "Απροσδιόριστο κάθε αλληλογραφίας"
+
+#: classes/MailLists/WidgetSubscribe.php:76
+msgid "Неправильный email"
+msgstr "Το λάθος μήνυμα ηλεκτρονικού ταχυδρομείου"
+
+#: config.php:10
+msgid "Пользователи почтовых рассылок"
+msgstr "Χρήστες λίστα ηλεκτρονικού ταχυδρομείου"
+
+#: config.php:11
+msgid "Имеют доступ к управлениями почтовыми рассылками"
+msgstr "Έχουν πρόσβαση στη διαχείριση των ενημερωτικών δελτίων μέσω ηλεκτρονικού ταχυδρομείου"
+
+#: data_history.php:12
+msgid "Рассылка сформирована (отложена)"
+msgstr "Εγγραφή σχηματίζεται (καθυστερημένες)"
+
+#: data_history.php:13
+msgid "Рассылка запланирована"
+msgstr "Ενημερωτικό Δελτίο προγραμματίζεται"
+
+#: data_history.php:14
+msgid "Идет рассылка"
+msgstr "Είναι η αποστολή"
+
+#: data_history.php:16
+msgid "Рассылка приостановлена"
+msgstr "Ενημερωτικό δελτίο ανασταλεί"
+
+#: data_history.php:17
+msgid "Рассылка отменена пользователем"
+msgstr "Ενημερωτικό Δελτίο ακυρώθηκε από το χρήστη"
+
+#: data_user_filters.php:12
+msgid "Все пользователи"
+msgstr "Όλοι οι χρήστες"
+
+#: data_user_filters.php:13
+msgid "Пользователи Backoffice"
+msgstr "Backoffice Μέλη"
+
+#: data_users.php:64
+#, php-format
+msgid "%s отмечено, из них %s имеют Email"
+msgstr "%s σημείωσε, είναι %s έχει Email"
+
+#: ui_mail_list_choose.php:16
+msgid "Выбор материалов для рассылки"
+msgstr "Η επιλογή των υλικών για τη διανομή"
+
+#: ui_mail_list_choose.php:57
+msgid "Добавить"
+msgstr "Προσθήκη"
+
+#: ui_mail_list_choose.php:64 ui_mail_list_properties.php:105
+#: ui_mail_list_properties.php:107 ui_mail_lists.php:80
+msgid "Удалить"
+msgstr "Διαγραφή"
+
+#: ui_mail_list_choose.php:72 ui_mail_list_properties.php:350
+msgid "Ok"
+msgstr "Ok"
+
+#: ui_mail_list_choose.php:79 ui_mail_list_properties.php:354
+#: ui_mail_list_send.php:450
+msgid "Отмена"
+msgstr "Ακύρωση"
+
+#: ui_mail_list_choose.php:90
+msgid "Выберете материал"
+msgstr "Επιλέξτε το υλικό"
+
+#: ui_mail_list_properties.php:25
+msgid "только подписанные"
+msgstr "μόνο που υπογράφηκε"
+
+#: ui_mail_list_properties.php:28
+msgid "Подписать всех"
+msgstr "Υπογράψει όλα"
+
+#: ui_mail_list_properties.php:35
+msgid "Отписать всех"
+msgstr "Διαγραφή όλων"
+
+#: ui_mail_list_properties.php:78
+msgid "Дата"
+msgstr "Ημερομηνία"
+
+#: ui_mail_list_properties.php:79
+msgid "Статус"
+msgstr "Κατάσταση"
+
+#: ui_mail_list_properties.php:87
+msgid "Очистить историю"
+msgstr "Εκκαθάριση ιστορικού"
+
+#: ui_mail_list_properties.php:89
+msgid "Очистка истории"
+msgstr "Εκκαθάριση ιστορικού"
+
+#: ui_mail_list_properties.php:89 ui_mail_list_properties.php:107
+#: ui_mail_list_properties.php:363 ui_mail_list_send.php:63
+#: ui_mail_list_send.php:377 ui_mail_lists.php:157
+msgid "Вы уверены"
+msgstr "Είστε βέβαιοι"
+
+#: ui_mail_list_properties.php:98
+msgid "Посмотреть/Разослать"
+msgstr "Προβολή / Διανομή"
+
+#: ui_mail_list_properties.php:148
+msgid "Добавить раздел"
+msgstr "Προσθήκη ενότητα"
+
+#: ui_mail_list_properties.php:152
+msgid "Выберете раздел"
+msgstr "Επιλέξτε ένα τμήμα"
+
+#: ui_mail_list_properties.php:170
+msgid "Удалить раздел"
+msgstr "Διαγραφή τμήματος"
+
+#: ui_mail_list_properties.php:186
+msgid "каждый"
+msgstr "κάθε"
+
+#: ui_mail_list_properties.php:193
+msgid "день"
+msgstr "ημέρα"
+
+#: ui_mail_list_properties.php:197
+msgid "месяца"
+msgstr "του μήνα"
+
+#: ui_mail_list_properties.php:212
+msgid "Основные"
+msgstr "Κύριος"
+
+#: ui_mail_list_properties.php:218 ui_mail_lists.php:13
+msgid "Имя"
+msgstr "Όνομα"
+
+#: ui_mail_list_properties.php:222 ui_mail_lists.php:14
+msgid "Описание"
+msgstr "Περιγραφή"
+
+#: ui_mail_list_properties.php:225 ui_mail_list_send.php:290
+msgid "От"
+msgstr "Από"
+
+#: ui_mail_list_properties.php:230
+msgid "Content-type"
+msgstr "Content-type"
+
+#: ui_mail_list_properties.php:242
+msgid "Тема письма"
+msgstr "Θέμα"
+
+#: ui_mail_list_properties.php:245
+msgid "Фильтр материалов"
+msgstr "Υλικά φίλτρων"
+
+#: ui_mail_list_properties.php:249
+msgid "Расписание"
+msgstr "Χρονοδιάγραμμα"
+
+#: ui_mail_list_properties.php:258
+msgid "Периодичность"
+msgstr "Περιοδικότητα"
+
+#: ui_mail_list_properties.php:263
+msgid "нет"
+msgstr "όχι"
+
+#: ui_mail_list_properties.php:264
+msgid "по дням"
+msgstr "με τη μέρα"
+
+#: ui_mail_list_properties.php:265
+msgid "по неделям"
+msgstr "εβδομαδιαίος"
+
+#: ui_mail_list_properties.php:266
+msgid "по месяцам"
+msgstr "μηνιαίος"
+
+#: ui_mail_list_properties.php:289
+msgid "Пн"
+msgstr "Δευ"
+
+#: ui_mail_list_properties.php:290
+msgid "Вт"
+msgstr "Τρ"
+
+#: ui_mail_list_properties.php:291
+msgid "Ср"
+msgstr "Τετ"
+
+#: ui_mail_list_properties.php:292
+msgid "Чт"
+msgstr "Πέμ"
+
+#: ui_mail_list_properties.php:293
+msgid "Пт"
+msgstr "Παρ"
+
+#: ui_mail_list_properties.php:294
+msgid "Сб"
+msgstr "Σάβ"
+
+#: ui_mail_list_properties.php:295
+msgid "Вс"
+msgstr "Κυρ"
+
+#: ui_mail_list_properties.php:303
+msgid "Шаблон письма"
+msgstr "Πρότυπο επιστολής"
+
+#: ui_mail_list_properties.php:310
+msgid "Пользователи"
+msgstr "Χρήστες"
+
+#: ui_mail_list_properties.php:314
+msgid "Разделы для рассылки"
+msgstr "Θέματα για την αποστολή"
+
+#: ui_mail_list_properties.php:324
+msgid "История"
+msgstr "Ιστορία"
+
+#: ui_mail_list_properties.php:363
+msgid "Подписка"
+msgstr "Εγγραφή"
+
+#: ui_mail_list_properties.php:397
+msgid "Свойства"
+msgstr "Ιδιότητες"
+
+#: ui_mail_list_properties.php:408
+msgid "Новая рассылка"
+msgstr "Νέα κατανομή"
+
+#: ui_mail_list_properties.php:453
+msgid "Сохранение..."
+msgstr "Αποθήκευση ..."
+
+#: ui_mail_list_send.php:17
+msgid "Рассылка"
+msgstr "Διανομή"
+
+#: ui_mail_list_send.php:26
+msgid "Тема"
+msgstr "Θέμα"
+
+#: ui_mail_list_send.php:32 ui_mail_list_send.php:205
+msgid "Тестовая рассылка"
+msgstr "Κατανομή της δοκιμής"
+
+#: ui_mail_list_send.php:39
+msgid "Повторить"
+msgstr "Επαναλαμβάνω"
+
+#: ui_mail_list_send.php:46
+msgid "Приостановить"
+msgstr "Αναστείλει"
+
+#: ui_mail_list_send.php:52
+msgid "Отложить рассылку"
+msgstr "Αναβάλει ενημερωτικό δελτίο"
+
+#: ui_mail_list_send.php:59 ui_mail_list_send.php:63
+msgid "Отменить рассылку"
+msgstr "Να ακυρώσει το ενημερωτικό δελτίο"
+
+#: ui_mail_list_send.php:74
+msgid "Провести рассылку"
+msgstr "Ενημερωτικό δελτίο αναμονή"
+
+#: ui_mail_list_send.php:132 ui_mail_list_send.php:142
+msgid "Ошибка"
+msgstr "Σφάλμα"
+
+#: ui_mail_list_send.php:132
+msgid "Поле \"Тема\" обязательно для заполнения"
+msgstr "Πεδίο «Θέμα» είναι απαραίτητη"
+
+#: ui_mail_list_send.php:142
+msgid "Выберите получателей"
+msgstr "Επιλογή παραληπτών"
+
+#: ui_mail_list_send.php:151
+msgid "Рассылка ..."
+msgstr "Ενημερωτικό δελτίο ..."
+
+#: ui_mail_list_send.php:205
+msgid "Введите e-mail получателей"
+msgstr "Εισάγετε τους παραλήπτες e-mail"
+
+#: ui_mail_list_send.php:324
+msgid "Получатели"
+msgstr "Παραλήπτες"
+
+#: ui_mail_list_send.php:346
+msgid "Добавить фильтр"
+msgstr "Προσθέστε το φίλτρο"
+
+#: ui_mail_list_send.php:351 ui_mail_list_send.php:366
+msgid "Новый фильтр"
+msgstr "Νέο φίλτρο"
+
+#: ui_mail_list_send.php:359
+msgid "Изменить фильтр"
+msgstr "Φίλτρο αλλαγή"
+
+#: ui_mail_list_send.php:374 ui_mail_list_send.php:377
+msgid "Удалить фильтр"
+msgstr "Αφαιρέστε το φίλτρο"
+
+#: ui_mail_list_send.php:413
+msgid "Имя фильтра"
+msgstr "Το όνομά του φίλτρου"
+
+#: ui_mail_list_send.php:417
+msgid "SQL<br>(без SELECT)"
+msgstr "SQL<br>(χωρίς SELECT)"
+
+#: ui_mail_list_send.php:442
+msgid "Проверить SQL"
+msgstr "Ελέγξτε SQL"
+
+#: ui_mail_list_send.php:446
+msgid "ОК"
+msgstr "ОК"
+
+#: ui_mail_list_send.php:489
+msgid "Подождите ..."
+msgstr "Περιμένετε ..."
+
+#: ui_mail_lists.php:57
+msgid "Разослать письмо пользователям"
+msgstr "Για να στείλετε μια επιστολή προς τους χρήστες"
+
+#: ui_mail_lists.php:64
+msgid "Создать"
+msgstr "Δημιουργήσετε"
+
+#: ui_mail_lists.php:72
+msgid "Редактировать"
+msgstr "Επεξεργασία"
+
+#: ui_mail_lists.php:90
+msgid "Предварительный просмотр"
+msgstr "Προεπισκόπηση"
+
+#: ui_mail_lists.php:99
+msgid "Разослать"
+msgstr "Διανέμουν"
+
+#: ui_mail_lists.php:157
+msgid "Удалить рассылку"
+msgstr "Κατάργηση ενημερωτικό δελτίο"
+
+#: unsubscribe.php:8
+msgid "Вы отписаны от рассылки"
+msgstr "Μπορείτε να διαγραφείτε"

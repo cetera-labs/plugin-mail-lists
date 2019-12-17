@@ -5,6 +5,8 @@
  * @version $Id: config.php,v 1.2 2006/04/15 09:16:17 cetera Exp $
  * @copyright 2005 
  **/
+ 
+use PHPMailer\PHPMailer\PHPMailer;
 
 define ('MAIL_LIST_FORMED', 1);
 define ('MAIL_LIST_SCHEDULED', 2);
@@ -92,25 +94,39 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
   				
       if (trim($to['email'])) {	
   
-          try {
-            $mail = new PHPMailer(true);
-            $mail->ContentType=$content_type;       
-            if ($fromemail) $mail->SetFrom($fromemail, $fromname);
-            $mail->CharSet = 'utf-8';
-            $mail->Subject = $subject;
-              
+          try {              
           	$bodye = $body;
           	foreach ($to as $name=>$value) $bodye = str_replace('{user_'.$name.'}', $value, $bodye);
-
-            $mail->AddAddress(strtolower($to['email']));
+            
 			if ($to['id']) 
 			{
-				$unsubscribe_link = \Cetera\Server::getDefault()->getFullUrl().'plugins/mail_lists/unsubscribe.php?uid='.$to['id'].'&lid='.$list_id;
+				$unsubscribe_link = \Cetera\Server::getDefault()->getFullUrl().'plugins/mail-lists/scripts/unsubscribe.php?uid='.$to['id'].'&lid='.$list_id;
 			    $mail->AddCustomHeader('List-Unsubscribe: <'.$unsubscribe_link.'>');
 				$bodye = str_replace('{unsubscribe_link}', $unsubscribe_link, $bodye);
             }
-			$mail->Body = $bodye;
-			$mail->Send();
+            
+            if (\MailLists\Settings::configGet( 'mailer' ) == 'sengrid') {
+                
+                $email = new \SendGrid\Mail\Mail(); 
+                if ($fromemail) $email->setFrom($fromemail, $fromname);
+                $email->setSubject($subject);
+                $email->addTo(strtolower($to['email']));
+                $email->addContent($content_type, $bodye);
+                $sendgrid = new \SendGrid( \MailLists\Settings::configGet( 'sengrid_api_key' ) );
+                $response = $sendgrid->send($email);          
+                
+            }
+            else {
+                $mail = new PHPMailer(true);
+                $mail->ContentType=$content_type;       
+                if ($fromemail) $mail->SetFrom($fromemail, $fromname);
+                $mail->CharSet = 'utf-8';
+                $mail->Subject = $subject;            
+                $mail->AddAddress(strtolower($to['email']));
+                $mail->Body = $bodye;
+                $mail->Send();
+            }
+            
             if ($log) fwrite($log, $to['email']." - OK\n");
           } catch (Exception $e) {
               if ($log)

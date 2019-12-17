@@ -38,7 +38,12 @@ Ext.define('Plugin.mail-lists.Settings', {
                     },
                     displayField: 'name',
                     valueField: 'id'                    
-				},				
+				},
+                {
+                    xtype     : 'textareafield',
+                    name      : 'sengrid_api_key',
+                    fieldLabel: 'SendGrid API Key'
+                }
 			]
 		}		
 	],      

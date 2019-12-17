@@ -64,6 +64,7 @@ Ext.define('Plugin.mail-lists.Settings', {
                     params: this.getComponent('settings_form').getForm().getValues(),
                     success: function(response, opts) {
                         this.getComponent('settings_form').setLoading(false);
+                        this.close();
                     },
                     scope: this
                 });	

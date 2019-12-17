@@ -157,7 +157,7 @@ if ($action == 'test_send') {
     if (!$f) {
         $f = array(
             'contenttype' => 'text/html',
-            'sender' => ''
+            'sender' => 'test@cetera.ru'
         );
     }
     do_send(0, $to, $f['contenttype'], $f['sender'], $_POST['subject'], $_POST['body'], $f['list_id']);

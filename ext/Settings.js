@@ -37,7 +37,9 @@ Ext.define('Plugin.mail-lists.Settings', {
                         ]
                     },
                     displayField: 'name',
-                    valueField: 'id'                    
+                    valueField: 'id',
+                    value: 'phpmailer',
+                    editable: false
 				},
                 {
                     xtype     : 'textareafield',

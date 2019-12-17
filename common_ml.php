@@ -114,7 +114,9 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
                 $email->addContent($content_type, $bodye);
                 $sendgrid = new \SendGrid( \MailLists\Settings::configGet( 'sengrid_api_key' ) );
                 $response = $sendgrid->send($email);          
-                
+                if ($response->statusCode()==400) {
+                    throw new \Exception( $response->body() );
+                }
             }
             else {
                 $mail = new PHPMailer(true);

@@ -93,7 +93,14 @@ Ext.define('Plugin.mail-lists.Panel', {
                             tooltip: _('Разослать'),
                             handler: function() { this.send(); },
                             scope: this
-                        }
+                        },
+                        '-',
+                        {
+                            iconCls: 'icon-settings',
+                            tooltip: _('Настройки модуля'),
+                            handler: this.setup,
+                            scope: this
+                        }                          
                     ]
                 });
         
@@ -118,6 +125,10 @@ Ext.define('Plugin.mail-lists.Panel', {
     border: false,
     loadMask: true,
     stripeRows: true,
+    
+    setup: function() {
+        Ext.create('Plugin.mail-lists.Settings');        
+    },
     
     createMail: function() {
           var sendWin = Ext.create('Plugin.mail-lists.MailListSendWindow', {

@@ -16,7 +16,7 @@ Ext.define('Plugin.mail-lists.Properties', {
     initComponent : function() {
     
         this.users = Ext.create('Cetera.users.Panel', {
-            url: '/plugins-composer/mail-lists/scripts/data_users.php',
+            url: '/cms/plugins/mail-lists/scripts/data_users.php',
             baseParams: {'id': 0},
             filter: _('только подписанные'),
             tbar: [
@@ -44,7 +44,7 @@ Ext.define('Plugin.mail-lists.Properties', {
             proxy: {
                 type: 'ajax',
                 extraParams: {'id': 0, 'limit': Cetera.defaultPageSize},
-                url: '/plugins-composer/mail-lists/scripts/data_history.php',
+                url: '/cms/plugins/mail-lists/scripts/data_history.php',
                 simpleSortMode: true,
                 reader: {
                     root: 'rows',
@@ -89,7 +89,7 @@ Ext.define('Plugin.mail-lists.Properties', {
                 scope: this
             },{
                 id: 'tb_ml_his_send',
-                icon: '/plugins-composer/mail-lists/images/icon_send.gif',
+                icon: '/cms/plugins/mail-lists/images/icon_send.gif',
                 disabled: true,
                 tooltip: _('Посмотреть/Разослать'),
                 handler: this.sendHistory,
@@ -116,7 +116,7 @@ Ext.define('Plugin.mail-lists.Properties', {
                 proxy: {
                     type: 'ajax',
                     extraParams: {'id': 0},
-                    url: '/plugins-composer/mail-lists/scripts/data_catalogs.php',
+                    url: '/cms/plugins/mail-lists/scripts/data_catalogs.php',
                     simpleSortMode: true,
                     reader: {
                         root: 'rows',
@@ -336,7 +336,7 @@ Ext.define('Plugin.mail-lists.Properties', {
             bodyStyle:'background: none',
             method: 'POST',
             waitMsgTarget: true,
-            url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
+            url: '/cms/plugins/mail-lists/scripts/action_mail_lists.php',
             items: this.tabs
         });
         
@@ -359,7 +359,7 @@ Ext.define('Plugin.mail-lists.Properties', {
         Ext.MessageBox.confirm(_('Подписка'), _('Вы уверены?'), function(btn) {
             if (btn == 'yes') {
                 Ext.Ajax.request({
-                    url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
+                    url: '/cms/plugins/mail-lists/scripts/action_mail_lists.php',
                     params: { 
                         action: action, 
                         id: this.listId
@@ -382,7 +382,7 @@ Ext.define('Plugin.mail-lists.Properties', {
         this.listId = id;
         if (id > 0) {
             Ext.Ajax.request({
-                url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
+                url: '/cms/plugins/mail-lists/scripts/action_mail_lists.php',
                 params: { 
                     action: 'get_list', 
                     id: this.listId
@@ -456,7 +456,7 @@ Ext.define('Plugin.mail-lists.Properties', {
     
     cleanHistory: function() {
         Ext.Ajax.request({
-            url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
+            url: '/cms/plugins/mail-lists/scripts/action_mail_lists.php',
             params: { 
                 action: 'clear_history', 
                 id: this.listId
@@ -470,7 +470,7 @@ Ext.define('Plugin.mail-lists.Properties', {
     
     deleteHistory: function() {
         Ext.Ajax.request({
-            url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
+            url: '/cms/plugins/mail-lists/scripts/action_mail_lists.php',
             params: { 
                 action: 'delete_history', 
                 id: this.historyGrid.getSelectionModel().getSelection()[0].getId()

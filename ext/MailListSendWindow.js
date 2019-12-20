@@ -83,7 +83,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
                     m += rec.get('table')+','+rec.get('id')+';';
                 },this);
                 Ext.Ajax.request({
-                    url: '/plugins/mail-lists/scripts/action_mail_lists.php',
+                    url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
                     params: { 
                         action: 'form_list', 
                         id: this.listId,
@@ -96,7 +96,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
             } else {
             
                 Ext.Ajax.request({
-                    url: '/plugins/mail-lists/scripts/action_mail_lists.php',
+                    url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
                     params: { 
                         action: 'get_history', 
                         id: this.historyId
@@ -125,7 +125,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
                 fields: ['id','name','sql'],
                 proxy: {
                     type: 'ajax',
-                    url: '/plugins/mail-lists/scripts/data_user_filters.php',
+                    url: '/plugins-composer/mail-lists/scripts/data_user_filters.php',
                     simpleSortMode: true,
                     reader: {
                         root: 'rows',
@@ -192,7 +192,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
                             Ext.MessageBox.confirm(_('Удалить фильтр'), _('Вы уверены&'), function(btn) {
                                 if (btn == 'yes') {
                                     Ext.Ajax.request({
-                                        url: '/plugins/mail-lists/scripts/action_mail_lists.php',
+                                        url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
                                         params: { 
                                             action: 'delete_filter', 
                                             id: this.filter.getSelectionModel().getSelection()[0].getId()
@@ -287,7 +287,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
     send : function() {
         this.retryButton.disable();
         Ext.Ajax.request({
-            url: '/plugins/mail-lists/scripts/action_mail_lists.php',
+            url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
             params: { 
                 action: 'send_list', 
                 id: this.historyId
@@ -361,7 +361,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
         if (this.listId) {
         
             Ext.Ajax.request({
-                url: '/plugins/mail-lists/scripts/action_mail_lists.php',
+                url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
                 params: { 
                     action: 'update_history', 
                     id: this.historyId,
@@ -378,7 +378,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
         
             this.pauseButton.disable();
             Ext.Ajax.request({
-                url: '/plugins/mail-lists/scripts/action_mail_lists.php',
+                url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
                 params: { 
                     action: 'set_history', 
                     subject: this.subject.getValue(),
@@ -403,7 +403,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
         Ext.Msg.prompt(_('Тестовая рассылка'), _('Введите e-mail получателей'), function(btn, text){
             if (btn == 'ok'){
                 Ext.Ajax.request({
-                    url: '/plugins/mail-lists/scripts/action_mail_lists.php',
+                    url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
                     params: { 
                         action: 'test_send', 
                         email: text,
@@ -427,7 +427,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
     status : function(status) {
         this.cancelButton.disable();
         Ext.Ajax.request({
-            url: '/plugins/mail-lists/scripts/action_mail_lists.php',
+            url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
             params: { 
                 action: 'set_status', 
                 status: status,
@@ -443,7 +443,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
     testSQL: function() {
         this.filterPropWin.setLoading(true);
         Ext.Ajax.request({
-            url: '/plugins/mail-lists/scripts/action_mail_lists.php',
+            url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php',
             params: { 
                 action: 'test_filter', 
                 sql:  this.filterPropForm.getForm().findField('sql').getValue()
@@ -462,7 +462,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
     
     saveFilter: function() {
         this.filterPropForm.getForm().submit({
-            url: '/plugins/mail-lists/scripts/action_mail_lists.php', 
+            url: '/plugins-composer/mail-lists/scripts/action_mail_lists.php', 
             params: {action: 'save_filter'},
             waitMsg: _('Подождите ...'),
             scope: this,

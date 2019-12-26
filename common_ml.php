@@ -98,17 +98,21 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
           	$bodye = $body;
           	foreach ($to as $name=>$value) $bodye = str_replace('{user_'.$name.'}', $value, $bodye);
             
-			if ($to['id']) 
-			{
+            $unsubscribe_link = false;
+			if ($to['id']) {
 				$unsubscribe_link = \Cetera\Server::getDefault()->getFullUrl().'plugins/mail-lists/scripts/unsubscribe.php?uid='.$to['id'].'&lid='.$list_id;
-			    $mail->AddCustomHeader('List-Unsubscribe: <'.$unsubscribe_link.'>');
 				$bodye = str_replace('{unsubscribe_link}', $unsubscribe_link, $bodye);
             }
             
             if (\MailLists\Settings::configGet( 'mailer' ) == 'sengrid') {
                 
                 $email = new \SendGrid\Mail\Mail(); 
-                if ($fromemail) $email->setFrom($fromemail, $fromname);
+                if ($fromemail) {
+                    $email->setFrom($fromemail, $fromname);
+                }
+                if ($unsubscribe_link) {
+                    $email->addHeader('List-Unsubscribe', $unsubscribe_link);
+                }                
                 $email->setSubject($subject);
                 $email->addTo(strtolower($to['email']));
                 $email->addContent($content_type, $bodye);
@@ -120,6 +124,9 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
             }
             else {
                 $mail = new PHPMailer(true);
+                if ($unsubscribe_link) {
+                    $mail->AddCustomHeader('List-Unsubscribe: <'.$unsubscribe_link.'>');
+                }
                 $mail->ContentType=$content_type;       
                 if ($fromemail) $mail->SetFrom($fromemail, $fromname);
                 $mail->CharSet = 'utf-8';

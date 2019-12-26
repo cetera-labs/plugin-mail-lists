@@ -101,10 +101,10 @@ if ($action == 'send_list') {
             	SELECT SQL_CALC_FOUND_ROWS A.* 
             	FROM users A, mail_lists_users B 
             	WHERE A.id=B.iduser and B.idlist=".$f['list_id']." 
-				GROUP BY A.email
             	LIMIT ".$f['counter'].",".MAX_RCPTS);
               
-        } elseif ($f['filter']) {
+        } 
+        elseif ($f['filter']) {
             
             $sql = '';
             switch ($f['filter']) {
@@ -116,7 +116,7 @@ if ($action == 'send_list') {
                     break;            
             }
             
-            $r = $application->getConn()->executeQuery("SELECT SQL_CALC_FOUND_ROWS ".$sql." GROUP BY A.email LIMIT ".$f['counter'].",".MAX_RCPTS);           
+            $r = $application->getConn()->executeQuery("SELECT SQL_CALC_FOUND_ROWS ".$sql." LIMIT ".$f['counter'].",".MAX_RCPTS);           
         
         }
           

@@ -78,6 +78,13 @@ class Newsletter extends \Cetera\Base {
 		
 		return $res['cnt'] > 0;
 	}
+    
+	public function getSubscribers()
+	{
+        $res = \Cetera\User::enum();
+        $res->getQuery()->leftJoin('main', 'mail_lists_users', 'MLU', 'main.id = MLU.iduser')->andWhere('MLU.idlist='.$this->id);
+        return $res;
+    }        
 	
 	public function unsubscribe( $user )
 	{

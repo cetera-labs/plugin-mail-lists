@@ -56,9 +56,12 @@ class Newsletter extends \Cetera\Base {
 			}
 		}
 		
-		if ($user && !$this->isSubscribed( $user ))
-		{
+		if ($user && !$this->isSubscribed( $user )) {
 			self::getDbConnection()->insert('mail_lists_users', array('idlist' => $this->id, 'iduser' => $user->id));
+            \Cetera\Event::trigger( 'NEWSLETTER_SUBSCRIBE', [
+                'newsletter' => $this,
+                'user' => $user,
+            ] );
 		}
 		
 		return $this;
@@ -95,9 +98,12 @@ class Newsletter extends \Cetera\Base {
 			$user = \Cetera\User::getByEmail( $email );
 		}
 		
-		if ($user)
-		{
+		if ($user) {
 			self::getDbConnection()->delete('mail_lists_users', array('idlist' => $this->id, 'iduser' => $user->id));
+            \Cetera\Event::trigger( 'NEWSLETTER_UNSUBSCRIBE', [
+                'newsletter' => $this,
+                'user' => $user,
+            ] );            
 		}
 		
 		return $this;		

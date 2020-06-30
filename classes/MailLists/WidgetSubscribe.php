@@ -64,12 +64,10 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
 					}
 				}
 
-				if ($subscribed)
-				{
+				if ($subscribed) {
 					$this->message = '<div class="callout success">'._('Подписка оформлена').'</div>';
 				}
-				else
-				{
+				else {
 					$this->message = '<div class="callout alert">'._('Не выбрано ни одной рассылки').'</div>';
 				}
 			}

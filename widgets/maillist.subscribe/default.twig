@@ -3,10 +3,10 @@
 <div id="{{ widget.getUniqueId() }}-wrapper">
 {% endif %}	
 
+{{ widget.message|raw }}
+
 <form method="post" class="x-form">
     {% block html %}
-        {{ widget.message|raw }}
-        
         {% if widget.getParam('newsletters_select') %}
         <ul class="menu vertical">
             {% for n in widget.getNewsletters() %}

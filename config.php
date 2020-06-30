@@ -21,8 +21,8 @@ $this->registerWidget(array(
 if ( $this->getBo() ) {
     
     $params = array(        
-        'newsletter.id'     => $t->_('Номер заказа'),
-        'newsletter.name'   => $t->_('Имя покупателя'),
+        'newsletter.id'     => $t->_('ID рассылки'),
+        'newsletter.name'   => $t->_('Рассылка'),
         'user.email'        => $t->_('Email пользователя'),
     );    
     $this->getBo()->registerEvent('NEWSLETTER_SUBSCRIBE', $t->_('Пользователь подписался на рассылку'), $params);

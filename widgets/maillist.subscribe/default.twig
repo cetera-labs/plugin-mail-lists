@@ -3,22 +3,23 @@
 <div id="{{ widget.getUniqueId() }}-wrapper">
 {% endif %}	
 
-<form novalidate="novalidate" data-abide="9xbxrb-abide" method="post" class="x-form">
+<form method="post" class="x-form">
+    {% block html %}
+        {{ widget.message|raw }}
+        
+        {% if widget.getParam('newsletters_select') %}
+        <ul class="menu vertical">
+            {% for n in widget.getNewsletters() %}
+            <li>
+                <p><input type="checkbox" checked name="newsletter[{{ n.id }}]" value="{{ n.id }}"> {{ n.name }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
 
-	{{ widget.message|raw }}
-
-	{% if widget.getParam('newsletters_select') %}
-	<ul class="menu vertical">
-		{% for n in widget.getNewsletters() %}
-		<li>
-			<p><input type="checkbox" checked name="newsletter[{{ n.id }}]" value="{{ n.id }}"> {{ n.name }}</p>
-		</li>
-		{% endfor %}
-	</ul>
-	{% endif %}
-
-    <input type="email" required="" name="email" placeholder="Email">
-    <button class="button expanded x-submit" type="submit">{{ widget.getParam('subscribe_text')|raw }}</button>
+        <input type="email" required="" name="email" placeholder="{{ widget.getParam('email_placeholder')|raw }}">
+        <button class="button expanded x-submit" type="submit">{{ widget.getParam('subscribe_text')|raw }}</button>
+    {% endblock %}
 	{{ widget.hiddenFields|raw }}
 </form> 
 

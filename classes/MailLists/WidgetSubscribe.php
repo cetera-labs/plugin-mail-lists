@@ -11,7 +11,8 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
 		$this->_params = array(
 			'newsletters'        => null,
 			'newsletters_select' => false,
-			'subscribe_text'     => _('Подписаться'),
+			'subscribe_text'     => 'Подписаться',
+            'email_placeholder'  => 'Email', 
 			'ajax'               => false,
 			'template'           => 'default.twig',
 		);  		

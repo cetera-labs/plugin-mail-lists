@@ -14,6 +14,7 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
 			'subscribe_text'     => 'Подписаться',
             'email_placeholder'  => 'Email', 
 			'ajax'               => false,
+            'button_class'       => 'button',
 			'template'           => 'default.twig',
 		);  		
 	}	

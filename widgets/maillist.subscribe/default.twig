@@ -18,7 +18,7 @@
         {% endif %}
 
         <input type="email" required="" name="email" placeholder="{{ widget.getParam('email_placeholder')|raw }}">
-        <button class="button expanded x-submit" type="submit">{{ widget.getParam('subscribe_text')|raw }}</button>
+        <button class="{{ widget.getParam('button_class')|raw }} x-submit" type="submit">{{ widget.getParam('subscribe_text')|raw }}</button>
     {% endblock %}
 	{{ widget.hiddenFields|raw }}
 </form> 

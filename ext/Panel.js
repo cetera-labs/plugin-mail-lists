@@ -34,7 +34,7 @@ Ext.define('Plugin.mail-lists.Panel', {
             totalProperty: 'total',
             proxy: {
                 type: 'ajax',
-                url: '/cms/plugins/mail-lists/scripts/data_mail_lists.php',
+                url: '/plugins/mail-lists/scripts/data_mail_lists.php',
                 simpleSortMode: true,
                 reader: {
                     root: 'rows',
@@ -89,7 +89,7 @@ Ext.define('Plugin.mail-lists.Panel', {
                         {
                             id: 'tb_mail_send',
                             disabled: true,
-                            icon: '/cms/plugins/mail-lists/images/icon_send.gif',
+                            icon: '/plugins/mail-lists/images/icon_send.gif',
                             tooltip: _('Разослать'),
                             handler: function() { this.send(); },
                             scope: this
@@ -174,7 +174,7 @@ Ext.define('Plugin.mail-lists.Panel', {
       
     call: function(action) {
         Ext.Ajax.request({
-            url: '/cms/plugins/mail-lists/scripts/action_mail_lists.php',
+            url: '/plugins/mail-lists/scripts/action_mail_lists.php',
             params: { 
                 action: action, 
                 id: this.getSelectionModel().getSelection()[0].getId()

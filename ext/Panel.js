@@ -89,7 +89,7 @@ Ext.define('Plugin.mail-lists.Panel', {
                         {
                             id: 'tb_mail_send',
                             disabled: true,
-                            icon: '/plugins/mail-lists/images/icon_send.gif',
+                            icon: '/cms/plugins/mail-lists/images/icon_send.gif',
                             tooltip: _('Разослать'),
                             handler: function() { this.send(); },
                             scope: this

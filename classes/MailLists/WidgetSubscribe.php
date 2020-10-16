@@ -37,7 +37,7 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
 	public function getHiddenFields()
 	{
 		$str  = '<input type="hidden" name="subscribe" value="'.$this->getUniqueId().'" />'.
-                '<input type="hidden" name="surname">';
+                        '<input type="hidden" name="surname">';
 		return $str;
 	}
 

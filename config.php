@@ -3,7 +3,8 @@ namespace MailLists;
 
 define('GROUP_MAIL', -102);
 
-$this->getTranslator()->addTranslation(__DIR__.'/lang');
+$t = $this->getTranslator();
+$t->addTranslation(__DIR__.'/lang');
 
 $this->addUserGroup(array(
     'id'      => GROUP_MAIL,
@@ -17,20 +18,27 @@ $this->registerWidget(array(
     'not_placeable' => true
 ));
 
-if ( $this->getBo() && $this->getUser() && $this->getUser()->hasRight(GROUP_MAIL) )
-{
-		
-    $this->getBo()->addModule(array(
-  	    'id'	   => 'mail_lists',
-  	    'position' => MENU_SITE,
-        'name' 	   => 'Рассылки',
-        'icon'     => '/cms/plugins/mail-lists/images/icon_send.gif',
-        'class'    => 'Plugin.mail-lists.Panel'
-    ));
-  
+if ( $this->getBo() ) {
+    
+    $params = array(        
+        'newsletter.id'     => $t->_('ID рассылки'),
+        'newsletter.name'   => $t->_('Рассылка'),
+        'user.email'        => $t->_('Email пользователя'),
+    );    
+    $this->getBo()->registerEvent('NEWSLETTER_SUBSCRIBE', $t->_('Пользователь подписался на рассылку'), $params);
+    $this->getBo()->registerEvent('NEWSLETTER_UNSUBSCRIBE', $t->_('Пользователь отписался от рассылки'), $params);
+
+    if ( $this->getUser() && $this->getUser()->hasRight(GROUP_MAIL) ) {
+            
+        $this->getBo()->addModule(array(
+            'id'	   => 'mail_lists',
+            'position' => MENU_SITE,
+            'name' 	   => 'Рассылки',
+            'icon'     => '/cms/plugins/mail-lists/images/icon_send.gif',
+            'class'    => 'Plugin.mail-lists.Panel'
+        ));
+      
+    }
+
 }
 $this->registerCronJob( __DIR__.'/scripts/scheduler.php' );
-
-function _($text) {
-	return \Cetera\Application::getInstance()->getTranslator()->_($text);
-}

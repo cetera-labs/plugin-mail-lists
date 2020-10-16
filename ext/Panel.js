@@ -34,7 +34,7 @@ Ext.define('Plugin.mail-lists.Panel', {
             totalProperty: 'total',
             proxy: {
                 type: 'ajax',
-                url: '/cms/plugins/mail-lists/scripts/data_mail_lists.php',
+                url: '/plugins/mail-lists/scripts/data_mail_lists.php',
                 simpleSortMode: true,
                 reader: {
                     root: 'rows',
@@ -174,7 +174,7 @@ Ext.define('Plugin.mail-lists.Panel', {
       
     call: function(action) {
         Ext.Ajax.request({
-            url: '/cms/plugins/mail-lists/scripts/action_mail_lists.php',
+            url: '/plugins/mail-lists/scripts/action_mail_lists.php',
             params: { 
                 action: action, 
                 id: this.getSelectionModel().getSelection()[0].getId()

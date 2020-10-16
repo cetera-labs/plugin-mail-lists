@@ -86,8 +86,8 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
         $fromname = str_replace($m[0],'',$from);
     }
     
-    if (is_dir(DOCROOT.'.logs') && is_writable(DOCROOT.'.logs')) {
-        $log = fopen(DOCROOT.'.logs/mail_'.date('Y_m_d').'.log', 'a');
+    if (is_dir(DOCROOT.'../logs') && is_writable(DOCROOT.'../logs')) {
+        $log = fopen(DOCROOT.'../logs/mail_'.date('Y_m_d').'.log', 'a');
     }
   
   	foreach ($mails as $to) {

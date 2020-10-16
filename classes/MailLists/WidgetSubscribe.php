@@ -11,8 +11,11 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
 		$this->_params = array(
 			'newsletters'        => null,
 			'newsletters_select' => false,
-			'subscribe_text'     => _('Подписаться'),
+			'subscribe_text'     => 'Подписаться',
+            'email_placeholder'  => 'Email', 
 			'ajax'               => false,
+            'button_class'       => 'button',
+            'form_class'         => '',
 			'template'           => 'default.twig',
 		);  		
 	}	
@@ -63,12 +66,10 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
 					}
 				}
 
-				if ($subscribed)
-				{
+				if ($subscribed) {
 					$this->message = '<div class="callout success">'._('Подписка оформлена').'</div>';
 				}
-				else
-				{
+				else {
 					$this->message = '<div class="callout alert">'._('Не выбрано ни одной рассылки').'</div>';
 				}
 			}

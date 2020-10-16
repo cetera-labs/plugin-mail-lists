@@ -210,6 +210,7 @@ if ($action == 'form_list') {
     $params = [
         'materials' => $materials,
         'application' => $application,
+        'newsletter' => \MailLists\Newsletter::getById($f['id']),
     ];
   	
   	$subject = $twig->render('subject', $params);

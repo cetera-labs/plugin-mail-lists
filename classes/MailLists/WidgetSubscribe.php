@@ -33,7 +33,8 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
 	
 	public function getHiddenFields()
 	{
-		$str  = '<input type="hidden" name="subscribe" value="'.$this->getUniqueId().'" />';
+		$str  = '<input type="hidden" name="subscribe" value="'.$this->getUniqueId().'" />'.
+                '<input type="hidden" name="surname">';
 		return $str;
 	}
 
@@ -46,7 +47,7 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
 
 		if (!$this->getNewsletters()->getCountAll()) return _('нет рассылок для подписки');
 		
-		if ( isset($_REQUEST['subscribe']) )
+		if ( isset($_REQUEST['subscribe']) && empty($_REQUEST['surname']) )
 		{
 			$email = $_REQUEST['email'];
 			if (self::is_email($email))

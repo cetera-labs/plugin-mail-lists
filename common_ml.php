@@ -86,7 +86,7 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
         $fromname = str_replace($m[0],'',$from);
     }
     
-    if (is_dir(DOCROOT.'../logs') && is_writable(DOCROOT.'../logs')) {
+    if (is_dir(DOCROOT.'../logs')) {
         $log = fopen(DOCROOT.'../logs/mail_'.date('Y_m_d').'.log', 'a');
     }
   
@@ -117,8 +117,9 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
                 $email->addTo(strtolower($to['email']));
                 $email->addContent($content_type, $bodye);
                 $sendgrid = new \SendGrid( \MailLists\Settings::configGet( 'sengrid_api_key' ) );
-                $response = $sendgrid->send($email);          
-                if ($response->statusCode()==400) {
+                $response = $sendgrid->send($email);     
+                if ($log) fwrite($log, $response->statusCode()."\n");
+                if ($response->statusCode()>=400) {
                     throw new \Exception( $response->body() );
                 }
             }

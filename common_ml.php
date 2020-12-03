@@ -103,7 +103,7 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
 				$unsubscribe_link = \Cetera\Server::getDefault()->getFullUrl().'plugins/mail-lists/scripts/unsubscribe.php?uid='.$to['id'].'&lid='.$list_id;
 				$bodye = str_replace('{unsubscribe_link}', $unsubscribe_link, $bodye);
             }
-            
+    print '***'.\MailLists\Settings::configGet( 'mailer' );        
             if (\MailLists\Settings::configGet( 'mailer' ) == 'sengrid') {
                 
                 $email = new \SendGrid\Mail\Mail(); 

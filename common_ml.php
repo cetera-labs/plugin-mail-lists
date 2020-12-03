@@ -70,6 +70,9 @@ function get_materials($id, $material_where) {
 }
 
 function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $list_id) {
+    
+    $res = [];
+    
 	$application = \Cetera\Application::getInstance();
 
   	reset($mails);
@@ -118,11 +121,9 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
                 $email->addContent($content_type, $bodye);
                 $sendgrid = new \SendGrid( \MailLists\Settings::configGet( 'sengrid_api_key' ) );
                 $response = $sendgrid->send($email);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";                
+                $res['response'] = $response;
                 if ($response->statusCode()>=400) {
-                    throw new \Exception( $response->body() );
+                    //throw new \Exception( $response->body() );
                 }
             }
             else {
@@ -149,5 +150,5 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
   	}
     
     if ($log) fclose($log);
-  	
+  	return $res;
 }

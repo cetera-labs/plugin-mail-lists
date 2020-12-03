@@ -160,7 +160,7 @@ if ($action == 'test_send') {
             'sender' => 'test@cetera.ru'
         );
     }
-    do_send(0, $to, $f['contenttype'], $f['sender'], $_POST['subject'], $_POST['body'], $f['list_id']);
+    $res = do_send(0, $to, $f['contenttype'], $f['sender'], $_POST['subject'], $_POST['body'], $f['list_id']);
     $res['success'] = true;
 }
 

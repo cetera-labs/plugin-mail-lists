@@ -105,8 +105,7 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
 			if ($to['id']) {
 				$unsubscribe_link = \Cetera\Server::getDefault()->getFullUrl().'plugins/mail-lists/scripts/unsubscribe.php?uid='.$to['id'].'&lid='.$list_id;
 				$bodye = str_replace('{unsubscribe_link}', $unsubscribe_link, $bodye);
-            }
-    print '***'.\MailLists\Settings::configGet( 'mailer' );        
+            }    
             if (\MailLists\Settings::configGet( 'mailer' ) == 'sengrid') {
                 
                 $email = new \SendGrid\Mail\Mail(); 
@@ -123,7 +122,7 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
                 $response = $sendgrid->send($email);
                 $res['response'] = $response;
                 if ($response->statusCode()>=400) {
-                    //throw new \Exception( $response->body() );
+                    throw new \Exception( $response->body() );
                 }
             }
             else {
@@ -142,8 +141,10 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
             
             if ($log) fwrite($log, $to['email']." - OK\n");
           } catch (Exception $e) {
-              if ($log)
+              if ($log) {
                   fwrite($log, $to['email']." - FAIL\n\n".var_export($e, true)."\n\n");
+              }
+              $res['error'] = $e;
           }
       }
   		if ($history_id) $application->getConn()->executeQuery('UPDATE mail_lists_history SET counter=counter+1 WHERE id='.$history_id);

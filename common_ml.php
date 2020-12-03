@@ -117,7 +117,10 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
                 $email->addTo(strtolower($to['email']));
                 $email->addContent($content_type, $bodye);
                 $sendgrid = new \SendGrid( \MailLists\Settings::configGet( 'sengrid_api_key' ) );
-                $response = $sendgrid->send($email);             
+                $response = $sendgrid->send($email);
+    print $response->statusCode() . "\n";
+    print_r($response->headers());
+    print $response->body() . "\n";                
                 if ($response->statusCode()>=400) {
                     throw new \Exception( $response->body() );
                 }

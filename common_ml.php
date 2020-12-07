@@ -143,7 +143,7 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
               if ($log) {
                   fwrite($log, $to['email']." - FAIL\n\n".var_export($e, true)."\n\n");
               }
-              throw $e;
+              //throw $e;
           }
       }
   		if ($history_id) $application->getConn()->executeQuery('UPDATE mail_lists_history SET counter=counter+1 WHERE id='.$history_id);

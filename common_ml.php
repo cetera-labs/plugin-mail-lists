@@ -95,7 +95,9 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
   				
       if (trim($to['email'])) {	
   
-          try {              
+          try {
+            $to['email'] = strtolower(trim($to['email']));
+              
           	$bodye = $body;
           	foreach ($to as $name=>$value) $bodye = str_replace('{user_'.$name.'}', $value, $bodye);
             
@@ -114,7 +116,7 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
                     $email->addHeader('List-Unsubscribe', $unsubscribe_link);
                 }                
                 $email->setSubject($subject);
-                $email->addTo(strtolower($to['email']));
+                $email->addTo($to['email']);
                 $email->addContent($content_type, $bodye);
                 $sendgrid = new \SendGrid( \MailLists\Settings::configGet( 'sengrid_api_key' ) );
                 $response = $sendgrid->send($email);
@@ -131,7 +133,7 @@ function do_send($history_id, &$mails, $content_type, $from, $subject, $body, $l
                 if ($fromemail) $mail->SetFrom($fromemail, $fromname);
                 $mail->CharSet = 'utf-8';
                 $mail->Subject = $subject;            
-                $mail->AddAddress(strtolower($to['email']));
+                $mail->AddAddress($to['email']);
                 $mail->Body = $bodye;
                 $mail->Send();
             }

@@ -88,7 +88,6 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
             }
 			catch (\Exception $e) {
 				$this->message = $e->getMessage();
-				return;
 			}
             
 		}				

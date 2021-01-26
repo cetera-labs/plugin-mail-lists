@@ -57,33 +57,40 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
 
 		if (!$this->getNewsletters()->getCountAll()) return _('нет рассылок для подписки');
 		
-		if ( isset($_REQUEST['subscribe']) && empty($_REQUEST['surname']) )
-		{
-			$email = $_REQUEST['email'];
-			if (self::is_email($email))
-			{
-				$subscribed = 0;
+		if ( isset($_REQUEST['subscribe']) && empty($_REQUEST['surname']) ) {
+            
+            try {
+                
+                $this->checkRecaptcha();
+            
+                $email = $_REQUEST['email'];
+                if (self::is_email($email)) {
+                    $subscribed = 0;
 
-				foreach ($this->getNewsletters() as $nl )
-				{
-					if ( !$this->getParam('newsletters_select') || isset($_REQUEST['newsletter'][$nl->id]) )
-					{
-						$nl->subscribe( $email );
-						$subscribed++;
-					}
-				}
+                    foreach ($this->getNewsletters() as $nl ) {
+                        if ( !$this->getParam('newsletters_select') || isset($_REQUEST['newsletter'][$nl->id]) ) {
+                            $nl->subscribe( $email );
+                            $subscribed++;
+                        }
+                    }
 
-				if ($subscribed) {
-					$this->message = '<div class="callout success">'._('Подписка оформлена').'</div>';
-				}
-				else {
-					$this->message = '<div class="callout alert">'._('Не выбрано ни одной рассылки').'</div>';
-				}
+                    if ($subscribed) {
+                        $this->message = '<div class="callout success">'._('Подписка оформлена').'</div>';
+                    }
+                    else {
+                        $this->message = '<div class="callout alert">'._('Не выбрано ни одной рассылки').'</div>';
+                    }
+                }
+                else {
+                    $this->message = '<div class="callout alert">'._('Неправильный email').'</div>';
+                }
+            
+            }
+			catch (\Exception $e) {
+				$this->message = $e->getMessage();
+				return;
 			}
-			else
-			{
-				$this->message = '<div class="callout alert">'._('Неправильный email').'</div>';
-			}
+            
 		}				
 		
 		return parent::_getHtml();

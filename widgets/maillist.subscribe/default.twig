@@ -60,12 +60,7 @@
                     var form = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-form");
                     for (var i = 0; i < form.elements.length; i++)
                         if (form.elements[i].getAttribute('name'))
-                            body += '&'+form.elements[i].getAttribute('name')+'='+form.elements[i].value;
-                            
-                    if (token) {
-                        body += '&g-recaptcha-response='+token;
-                    }
-                            
+                            body += '&'+form.elements[i].getAttribute('name')+'='+form.elements[i].value;                            
                     request.open('POST', '{{ widget.getAjaxUrl()|raw }}', true);
                     request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
                     request.onload = function (e) {

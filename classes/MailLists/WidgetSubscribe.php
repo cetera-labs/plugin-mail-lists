@@ -3,6 +3,9 @@ namespace MailLists;
 
 class WidgetSubscribe extends \Cetera\Widget\Templateable
 {
+    
+    use \Cetera\Widget\Traits\ReCaptcha;
+    
 	protected $_newsletters = null;
 	public $message = '';
 
@@ -20,6 +23,10 @@ class WidgetSubscribe extends \Cetera\Widget\Templateable
 		);  		
 	}	
 	
+	protected function init()
+	{
+		$this->initRecaptcha();
+    }        
 
 	public function getNewsletters()
 	{

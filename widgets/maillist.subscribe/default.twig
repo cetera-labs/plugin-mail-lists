@@ -18,7 +18,17 @@
         {% endif %}
 
         <input type="email" required="" name="email" placeholder="{{ widget.getParam('email_placeholder')|raw }}">
-        <button class="{{ widget.getParam('button_class')|raw }} x-submit" type="submit">{{ widget.getParam('subscribe_text')|raw }}</button>
+        <button 
+        {% if widget.showRecaptcha %}
+            class="{{ widget.getParam('button_class')|raw }} x-submit g-recaptcha" 
+            data-sitekey="{{ widget.getParam('recaptcha_site_key') }}" 
+            data-callback='{{ widget.uniqueId|replace({'-':'_'}) }}_submit' 
+            data-action='submit'
+        {% else %}
+            class="{{ widget.getParam('button_class')|raw }} x-submit" 
+            type="submit"            
+        {% endif %}
+        >{{ widget.getParam('subscribe_text')|raw }}</button>
     {% endblock %}
 	{{ widget.hiddenFields|raw }}
 </form> 
@@ -29,46 +39,53 @@
 
 {% set script %}
     {% if widget.getParam('ajax') and not widget.getParam('ajaxCall') %}
-	<script>	
-		document.addEventListener('DOMContentLoaded', function () {
-			{{ widget.uniqueId|replace({'-':'_'}) }}_hook();
-		});
-		function {{ widget.uniqueId|replace({'-':'_'}) }}_hook(){
-		    var form = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-form");				
-			form.addEventListener("submit", function(e){
-				e.preventDefault();
-				var request = new XMLHttpRequest();
-				var body = '{% for name,value in widget.params %}params[{{ name }}]={{ value|url_encode }}&{% endfor %}';
-				var form = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-form");
-				for (var i = 0; i < form.elements.length; i++)
-					if (form.elements[i].getAttribute('name'))
-						body += '&'+form.elements[i].getAttribute('name')+'='+form.elements[i].value;
-				request.open('POST', '{{ widget.getAjaxUrl()|raw }}', true);
-				request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-				request.onload = function (e) {
-					if (request.readyState === 4) {
-						if (request.status === 200) {
-							var widget = document.querySelector("#{{ widget.uniqueId }}-wrapper");
-							widget.innerHTML = request.responseText;
-							{{ widget.uniqueId|replace({'-':'_'}) }}_hook();
-						} else {
-							console.error(request.statusText);
-						}
-					}
-				};
-				request.onerror = function (e) {
-					console.error(request.statusText);
-				};
-				var submit = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-submit");
-				if (submit) {
-					submit.innerHTML = '{{ _('Отправка ...') }}';
-					submit.setAttribute('disabled',1);
-				}
-				request.send(body);				
-			});
-		}
-				
-	</script>
+        <script>	
+        
+        {% if not widget.showRecaptcha %}
+            document.addEventListener('DOMContentLoaded', function () {
+                {{ widget.uniqueId|replace({'-':'_'}) }}_hook();
+            });
+            function {{ widget.uniqueId|replace({'-':'_'}) }}_hook(){
+                var form = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-form");				
+                form.addEventListener("submit", function(e){
+                    e.preventDefault();
+                    return {{ widget.uniqueId|replace({'-':'_'}) }}_submit();
+                });
+            }
+        {% endif %}
+        
+            function {{ widget.uniqueId|replace({'-':'_'}) }}_submit(token){
+                    var request = new XMLHttpRequest();
+                    var body = '{% for name,value in widget.params %}params[{{ name }}]={{ value|url_encode }}&{% endfor %}';
+                    var form = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-form");
+                    for (var i = 0; i < form.elements.length; i++)
+                        if (form.elements[i].getAttribute('name'))
+                            body += '&'+form.elements[i].getAttribute('name')+'='+form.elements[i].value;
+                    request.open('POST', '{{ widget.getAjaxUrl()|raw }}', true);
+                    request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+                    request.onload = function (e) {
+                        if (request.readyState === 4) {
+                            if (request.status === 200) {
+                                var widget = document.querySelector("#{{ widget.uniqueId }}-wrapper");
+                                widget.innerHTML = request.responseText;
+                                {{ widget.uniqueId|replace({'-':'_'}) }}_hook();
+                            } else {
+                                console.error(request.statusText);
+                            }
+                        }
+                    };
+                    request.onerror = function (e) {
+                        console.error(request.statusText);
+                    };
+                    var submit = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-submit");
+                    if (submit) {
+                        submit.innerHTML = '{{ _('Отправка ...') }}';
+                        submit.setAttribute('disabled',1);
+                    }
+                    request.send(body);	        
+            }
+                    
+        </script>
 	{% endif %}
 {% endset %}
 {% do widget.application.addHeadString( script ) %}

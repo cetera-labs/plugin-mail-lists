@@ -87,12 +87,14 @@
                     
         </script>
     {% else %}
+        {% if widget.showRecaptcha %}
         <script>	
             function {{ widget.uniqueId|replace({'-':'_'}) }}_submit(token){
                 var form = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-form");
                 form.submit();
             }      
-        </script>        
+        </script> 
+        {% endif %}
 	{% endif %}
     
 {% endset %}

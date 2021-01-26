@@ -49,7 +49,7 @@
                 var form = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-form");				
                 form.addEventListener("submit", function(e){
                     e.preventDefault();
-                    return {{ widget.uniqueId|replace({'-':'_'}) }}_submit();
+                    return {{ widget.uniqueId|replace({'-':'_'}) }}_submit(false);
                 });
             }
         {% endif %}
@@ -61,6 +61,11 @@
                     for (var i = 0; i < form.elements.length; i++)
                         if (form.elements[i].getAttribute('name'))
                             body += '&'+form.elements[i].getAttribute('name')+'='+form.elements[i].value;
+                            
+                    if (token) {
+                        body += '&g-recaptcha-response='+token;
+                    }
+                            
                     request.open('POST', '{{ widget.getAjaxUrl()|raw }}', true);
                     request.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
                     request.onload = function (e) {

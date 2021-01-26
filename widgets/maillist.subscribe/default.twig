@@ -86,6 +86,14 @@
             }
                     
         </script>
+    {% else %}
+        <script>	
+            function {{ widget.uniqueId|replace({'-':'_'}) }}_submit(token){
+                var form = document.querySelector("#{{ widget.uniqueId }}-wrapper .x-form");
+                form.submit();
+            }      
+        </script>        
 	{% endif %}
+    
 {% endset %}
 {% do widget.application.addHeadString( script ) %}

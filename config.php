@@ -18,6 +18,10 @@ $this->registerWidget(array(
     'not_placeable' => true
 ));
 
+\Cetera\Event::attach('CORE_USER_DELETE', function($event, $data){
+	\Cetera\Application::getInstance()->getDbConnection()->delete('mail_lists_users', ['iduser' => $data['user']->id]);
+});
+
 if ( $this->getBo() ) {
     
     $params = array(        

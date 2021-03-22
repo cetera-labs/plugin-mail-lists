@@ -298,7 +298,7 @@ Ext.define('Plugin.mail-lists.Properties', {
                 title: _('Шаблон письма'),
                 layout : 'fit',
                 items: [{
-                    xtype:'textarea',
+                    xtype:'acefield',
                     name:'body'
                 }]
             },{

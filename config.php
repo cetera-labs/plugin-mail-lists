@@ -39,7 +39,7 @@ if ( $this->getBo() ) {
             'position' => MENU_SITE,
             'name' 	   => 'Рассылки',
             'icon'     => '/cms/plugins/mail-lists/images/icon_send.gif',
-            'iconCls'  => 'x-far fa-envelope',
+            'iconCls'  => 'x-fas fa-envelope',
             'class'    => 'Plugin.mail-lists.Panel'
         ));
       

@@ -200,10 +200,8 @@ Ext.define('Plugin.mail-lists.Properties', {
         });
     
         this.tabs = new Ext.TabPanel({
-            deferredRender: false,
             activeTab: 0,
             border: false,
-            activeTab: 0,
             defaults:{bodyStyle:'padding:5px'},
             items: [{
                 title: _('Основные'),
@@ -326,6 +324,7 @@ Ext.define('Plugin.mail-lists.Properties', {
             method: 'POST',
             waitMsgTarget: true,
             url: '/cms/plugins/mail-lists/scripts/action_mail_lists.php',
+            layout: 'fit',
             items: this.tabs
         });
         

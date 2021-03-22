@@ -37,7 +37,7 @@ Ext.define('Plugin.mail-lists.Panel', {
                 url: '/cms/plugins/mail-lists/scripts/data_mail_lists.php',
                 simpleSortMode: true,
                 reader: {
-                    root: 'rows',
+                    rootProperty: 'rows',
                     idProperty: 'id'
                 }
             }

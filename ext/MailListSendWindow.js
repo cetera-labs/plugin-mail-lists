@@ -128,7 +128,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
                     url: '/cms/plugins/mail-lists/scripts/data_user_filters.php',
                     simpleSortMode: true,
                     reader: {
-                        root: 'rows',
+                        rootProperty: 'rows',
                         idProperty: 'id'
                     }
                 }

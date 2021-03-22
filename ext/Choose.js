@@ -26,7 +26,7 @@ Ext.define('Plugin.mail-lists.Choose', {
                 url: '/cms/plugins/mail-lists/scripts/data_materials.php',
                 simpleSortMode: true,
                 reader: {
-                    root: 'rows',
+                    rootProperty: 'rows',
                     idProperty: 'id'
                 }
             }

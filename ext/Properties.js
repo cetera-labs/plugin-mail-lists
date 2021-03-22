@@ -47,7 +47,7 @@ Ext.define('Plugin.mail-lists.Properties', {
                 url: '/cms/plugins/mail-lists/scripts/data_history.php',
                 simpleSortMode: true,
                 reader: {
-                    root: 'rows',
+                    rootProperty: 'rows',
                     idProperty: 'id'
                 }
             }
@@ -88,8 +88,9 @@ Ext.define('Plugin.mail-lists.Properties', {
                 },
                 scope: this
             },{
-                id: 'tb_ml_his_send x-fa fa-paper-plane',
+                id: 'tb_ml_his_send',
                 icon: '/cms/plugins/mail-lists/images/icon_send.gif',
+                iconCls: 'x-fa fa-paper-plane',
                 disabled: true,
                 tooltip: _('Посмотреть/Разослать'),
                 handler: this.sendHistory,
@@ -119,7 +120,7 @@ Ext.define('Plugin.mail-lists.Properties', {
                     url: '/cms/plugins/mail-lists/scripts/data_catalogs.php',
                     simpleSortMode: true,
                     reader: {
-                        root: 'rows',
+                        rootProperty: 'rows',
                         idProperty: 'id'
                     }
                 }

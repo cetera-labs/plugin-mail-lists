@@ -129,6 +129,7 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
                     simpleSortMode: true,
                     reader: {
                         rootProperty: 'rows',
+                        root: 'rows',
                         idProperty: 'id'
                     }
                 }

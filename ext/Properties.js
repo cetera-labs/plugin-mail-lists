@@ -48,6 +48,7 @@ Ext.define('Plugin.mail-lists.Properties', {
                 simpleSortMode: true,
                 reader: {
                     rootProperty: 'rows',
+                    root: 'rows',
                     idProperty: 'id'
                 }
             }
@@ -121,6 +122,7 @@ Ext.define('Plugin.mail-lists.Properties', {
                     simpleSortMode: true,
                     reader: {
                         rootProperty: 'rows',
+                        root: 'rows',
                         idProperty: 'id'
                     }
                 }

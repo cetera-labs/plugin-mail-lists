@@ -38,6 +38,7 @@ Ext.define('Plugin.mail-lists.Panel', {
                 simpleSortMode: true,
                 reader: {
                     rootProperty: 'rows',
+                    root: 'rows',
                     idProperty: 'id'
                 }
             }

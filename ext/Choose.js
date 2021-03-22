@@ -27,6 +27,7 @@ Ext.define('Plugin.mail-lists.Choose', {
                 simpleSortMode: true,
                 reader: {
                     rootProperty: 'rows',
+                    root: 'rows',
                     idProperty: 'id'
                 }
             }

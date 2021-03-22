@@ -6,9 +6,9 @@ Ext.define('Plugin.mail-lists.Properties', {
     title: '',
     width: 800,
     height: 600,
-    layout: 'vbox',
+    layout: 'fit',
     modal: true,
-    resizable: false,
+    resizable: true,
     border: false,
     
     listId: 0,
@@ -174,24 +174,27 @@ Ext.define('Plugin.mail-lists.Properties', {
             hidden: true,
 			layout: {
 				type: 'hbox',
-				defaultMargins: {top: 0, right: 5, bottom: 0, left: 0}
 			},	
 			hideEmptyLabel: false,
             items: [
               {
                    xtype: 'displayfield',
-                   value: _('каждый')
+                   value: _('каждый'),
+                   padding: '0 10 0 0'
                },{
                    name : 'schedule_period',
                    xtype: 'numberfield',
-                   width: 50
+                   width: 100,
+                   padding: '0 10 0 0'
                },{
                    xtype: 'displayfield',
-                   value: _('день')
+                   value: _('день'),
+                   padding: '0 10 0 0'
                },{
                    id: 'ml_month',
                    xtype: 'displayfield',
-                   value: _('месяца')
+                   value: _('месяца'),
+                   padding: '0 10 0 0'
                }
             ]        
         });
@@ -199,10 +202,8 @@ Ext.define('Plugin.mail-lists.Properties', {
         this.tabs = new Ext.TabPanel({
             deferredRender: false,
             activeTab: 0,
-            plain:true,
             border: false,
             activeTab: 0,
-            height: 400,
             defaults:{bodyStyle:'padding:5px'},
             items: [{
                 title: _('Основные'),
@@ -240,60 +241,50 @@ Ext.define('Plugin.mail-lists.Properties', {
                     },{
                         fieldLabel: _('Фильтр материалов'),
                         name: 'material_where'
-                    },{
-                        xtype:'fieldset',
-                        title: _('Расписание'),
-                        autoHeight:true,
-                        defaults: { 
-							anchor: '0',
-							hideEmptyLabel: false,
-						},
-                        defaultType: 'textfield',
-                        items: [
-                            new Ext.form.ComboBox({
-                                fieldLabel: _('Периодичность'),
-                                name:'schedule',
-                                store: new Ext.data.SimpleStore({
-                                    fields: ['id','name'],
-                                    data : [
-                                        [0, _('нет')],
-                                        [1, _('по дням')],
-                                        [2, _('по неделям')],
-                                        [3, _('по месяцам')]
-                                    ]
-                                }),
-                                valueField: 'id',
-                                displayField: 'name',
-                                mode: 'local',
-                                triggerAction: 'all',
-                                editable: false,
-                                listeners: {
-                                    select: function(combo) {
-                                        var f = this.form.getForm();
-                                        this.ml_interval.setVisible(combo.value==1 || combo.value==3);
-                                        f.findField('ml_week').setVisible(combo.value==2);
-                                        var m = f.findField('ml_month');
-                                        if (m) m.setVisible(combo.value==3);
-                                    },
-                                    scope: this
-                                }
-                            }),{
-                                id: 'ml_week',
-                                xtype: 'checkboxgroup',
-                                hidden: true,
-                                items: [
-                                    {boxLabel: _('Пн'), name: 'd0', inputValue: 1 },
-                                    {boxLabel: _('Вт'), name: 'd1', inputValue: 2 },
-                                    {boxLabel: _('Ср'), name: 'd2', inputValue: 4 },
-                                    {boxLabel: _('Чт'), name: 'd3', inputValue: 8 },
-                                    {boxLabel: _('Пт'), name: 'd4', inputValue: 16},
-                                    {boxLabel: _('Сб'), name: 'd5', inputValue: 32},
-                                    {boxLabel: _('Вс'), name: 'd6', inputValue: 64}
-                                ]
+                    },
+                    new Ext.form.ComboBox({
+                        fieldLabel: _('Периодичность'),
+                        name:'schedule',
+                        store: new Ext.data.SimpleStore({
+                            fields: ['id','name'],
+                            data : [
+                                [0, _('нет')],
+                                [1, _('по дням')],
+                                [2, _('по неделям')],
+                                [3, _('по месяцам')]
+                            ]
+                        }),
+                        valueField: 'id',
+                        displayField: 'name',
+                        mode: 'local',
+                        triggerAction: 'all',
+                        editable: false,
+                        listeners: {
+                            select: function(combo) {
+                                var f = this.form.getForm();
+                                this.ml_interval.setVisible(combo.value==1 || combo.value==3);
+                                f.findField('ml_week').setVisible(combo.value==2);
+                                var m = f.findField('ml_month');
+                                if (m) m.setVisible(combo.value==3);
                             },
-                            this.ml_interval
+                            scope: this
+                        }
+                    }),{
+                        id: 'ml_week',
+                        xtype: 'checkboxgroup',
+                        hidden: true,
+                        items: [
+                            {boxLabel: _('Пн'), name: 'd0', inputValue: 1 },
+                            {boxLabel: _('Вт'), name: 'd1', inputValue: 2 },
+                            {boxLabel: _('Ср'), name: 'd2', inputValue: 4 },
+                            {boxLabel: _('Чт'), name: 'd3', inputValue: 8 },
+                            {boxLabel: _('Пт'), name: 'd4', inputValue: 16},
+                            {boxLabel: _('Сб'), name: 'd5', inputValue: 32},
+                            {boxLabel: _('Вс'), name: 'd6', inputValue: 64}
                         ]
-                    }
+                    },
+                    this.ml_interval
+
                 ]
             },{
                 title: _('Шаблон письма'),
@@ -332,8 +323,6 @@ Ext.define('Plugin.mail-lists.Properties', {
         this.form = new Ext.FormPanel({
             labelWidth: 140,
             border: false,
-            width: 638,
-            bodyStyle:'background: none',
             method: 'POST',
             waitMsgTarget: true,
             url: '/cms/plugins/mail-lists/scripts/action_mail_lists.php',

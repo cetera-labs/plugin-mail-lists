@@ -503,6 +503,6 @@ Ext.define('Plugin.mail-lists.MailListSendWindow', {
         
         this.historyId = obj.data.id_history;
         
-        this.doLayout(); 
+        this.updateLayout(); 
     }
 });

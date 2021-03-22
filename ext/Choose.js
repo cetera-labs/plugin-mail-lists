@@ -49,13 +49,13 @@ Ext.define('Plugin.mail-lists.Choose', {
             columns: [{flex:1,dataIndex: 'name'}],
             tbar: [{
                 id: 'tb_mail_add',
-                iconCls:'icon-plus',
+                iconCls:'icon-plus x-fa fa-plus',
                 tooltip:_('Добавить'),
                 handler: this.addMaterial,
                 scope: this
             },{
                 id: 'tb_mail_remove',
-                iconCls:'icon-minus',
+                iconCls:'icon-minus x-fa fa-plus',
                 disabled: true,
                 tooltip:_('Удалить'),
                 handler: function () { this.store.remove(this.grid.getSelectionModel().getSelected()); },

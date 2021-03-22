@@ -4,8 +4,8 @@ Ext.define('Plugin.mail-lists.Properties', {
     
     closeAction: 'hide',
     title: '',
-    width: 650,
-    height: 463,
+    width: 800,
+    height: 600,
     layout: 'vbox',
     modal: true,
     resizable: false,
@@ -79,7 +79,7 @@ Ext.define('Plugin.mail-lists.Properties', {
                 pageSize: Cetera.defaultPageSize
             }),
             tbar: [{
-                iconCls:'icon-clean',
+                iconCls:'icon-clean x-fa fa-broom',
                 tooltip: _('Очистить историю'),
                 handler: function() {
                     Ext.MessageBox.confirm(_('Очистка истории'), _('Вы уверены?'), function(btn) {
@@ -88,7 +88,7 @@ Ext.define('Plugin.mail-lists.Properties', {
                 },
                 scope: this
             },{
-                id: 'tb_ml_his_send',
+                id: 'tb_ml_his_send x-fa fa-paper-plane',
                 icon: '/cms/plugins/mail-lists/images/icon_send.gif',
                 disabled: true,
                 tooltip: _('Посмотреть/Разослать'),
@@ -96,7 +96,7 @@ Ext.define('Plugin.mail-lists.Properties', {
                 scope: this
             },{
                 id: 'tb_ml_his_del',
-                iconCls:'icon-delete',
+                iconCls:'icon-delete x-fa fa-trash',
                 disabled: true,
                 tooltip: _('Удалить'),
                 handler: function() {
@@ -201,9 +201,8 @@ Ext.define('Plugin.mail-lists.Properties', {
             plain:true,
             border: false,
             activeTab: 0,
-            bodyStyle:'background: none',
             height: 400,
-            defaults:{bodyStyle:'background:none; padding:5px'},
+            defaults:{bodyStyle:'padding:5px'},
             items: [{
                 title: _('Основные'),
                 layout: 'form',

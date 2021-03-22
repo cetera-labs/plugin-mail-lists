@@ -48,13 +48,14 @@ Ext.define('Plugin.mail-lists.Panel', {
                         {
                             id: 'tb_mail_create',
                             icon: 'images/create_mail.gif',
+                            iconCls: 'x-fa fa-envelope-open-text',
                             tooltip: _('Разослать письмо пользователям'),
                             handler: function () { this.createMail(); },
                             scope: this
                         }, '-',                    
                         {
                             id: 'tb_mail_new',
-                            iconCls:'icon-new',
+                            iconCls:'icon-new x-fa fa-plus',
                             tooltip:_('Создать'),
                             handler: function () { this.edit(0); },
                             scope: this
@@ -62,7 +63,7 @@ Ext.define('Plugin.mail-lists.Panel', {
                         {
                             id: 'tb_mail_edit',
                             disabled: true,
-                            iconCls:'icon-edit',
+                            iconCls:'icon-edit x-fa fa-edit',
                             tooltip:_('Редактировать'),
                             handler: function () { this.edit(this.getSelectionModel().getSelection()[0].getId()); },
                             scope: this
@@ -70,33 +71,24 @@ Ext.define('Plugin.mail-lists.Panel', {
                         {
                             id: 'tb_mail_delete',
                             disabled: true,
-                            iconCls:'icon-delete',
+                            iconCls:'icon-delete  x-fa fa-trash',
                             tooltip: _('Удалить'),
                             handler: function () { this.delete_list(); },
                             scope: this
                         },
                         '-',
-                        /*
-                        {
-                            id: 'tb_mail_preview',
-                            disabled: true,
-                            iconCls:'icon-preview',
-                            tooltip:_('Предварительный просмотр'),
-                            handler: function() { this.preview(); },
-                            scope: this
-                        },
-                        */
                         {
                             id: 'tb_mail_send',
                             disabled: true,
                             icon: '/cms/plugins/mail-lists/images/icon_send.gif',
+                            iconCls: 'x-fa fa-paper-plane',
                             tooltip: _('Разослать'),
                             handler: function() { this.send(); },
                             scope: this
                         },
                         '-',
                         {
-                            iconCls: 'icon-settings',
+                            iconCls: 'icon-settings x-fa fa-tools',
                             tooltip: _('Настройки модуля'),
                             handler: this.setup,
                             scope: this

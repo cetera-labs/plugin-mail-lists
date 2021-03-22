@@ -4,7 +4,7 @@ Ext.define('Plugin.mail-lists.Settings', {
 
     autoShow: true,
     width: 600,
-    height: 200,
+    height: 300,
     layout: 'fit',
     modal: true,
     resizable: false,

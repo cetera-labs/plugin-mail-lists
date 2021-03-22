@@ -4,7 +4,7 @@ Ext.define('Plugin.mail-lists.Panel', {
     
     columns: [
 		{header: "ID", width: 75, dataIndex: 'id'},
-        {flex: 1, header: _('Имя'), width: 275, dataIndex: 'name'},
+        {flex: 1, header: _('Рассылка'), width: 275, dataIndex: 'name'},
         {header: _('Описание'), width: 400, dataIndex: 'describ'}
     ],
     

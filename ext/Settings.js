@@ -59,7 +59,7 @@ Ext.define('Plugin.mail-lists.Settings', {
 
                 this.getComponent('settings_form').setLoading(true);
                 Ext.Ajax.request({
-                    url: '/plugins/mail-lists/scripts/data_settings.php',
+                    url: '/cms/plugins/mail-lists/scripts/data_settings.php',
                     method: 'POST',
                     params: this.getComponent('settings_form').getForm().getValues(),
                     success: function(response, opts) {
@@ -82,7 +82,7 @@ Ext.define('Plugin.mail-lists.Settings', {
 	afterRender: function(){
 		this.getComponent('settings_form').setLoading(true);
 		Ext.Ajax.request({
-			url: '/plugins/mail-lists/scripts/data_settings.php',
+			url: '/cms/plugins/mail-lists/scripts/data_settings.php',
 			success: function(response, opts) {
 				var obj = Ext.decode(response.responseText);
 				this.getComponent('settings_form').getForm().setValues(obj);

@@ -23,7 +23,7 @@ Ext.define('Plugin.mail-lists.Choose', {
             proxy: {
                 type: 'ajax',
                 extraParams: {id: 0},
-                url: '/plugins/mail-lists/scripts/data_materials.php',
+                url: '/cms/plugins/mail-lists/scripts/data_materials.php',
                 simpleSortMode: true,
                 reader: {
                     root: 'rows',
